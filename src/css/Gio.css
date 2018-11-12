@@ -1,0 +1,15 @@
+.zp{
+	position: relative;
+}
+
+.no-display{
+	display: flex;
+}
+.row-fluid { 
+	height: inherit;
+}
+
+.height-fix{
+	max-width: 100%;
+	max-height: 500px;
+}

@@ -1,0 +1,394 @@
+/*
+ * Globals
+ */
+
+/* Links */
+a,
+a:focus,
+a:hover {
+  color: #fff;
+}
+/*
+ * Base structure
+ */
+
+html,
+body {
+  height: 100%;
+  background-color: #fff;
+}
+body {
+  color: #000;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5);
+}
+
+audio, canvas, video {
+  display: inline-block;
+  width: 100%;
+}
+.cover-container {
+  margin-right: auto;
+  margin-left: auto;
+  z-index: 1000000000;
+}
+.row{
+  margin: 0px;
+}
+/* Custom default button */
+.btn-default,
+.btn-default:hover,
+.btn-default:focus {
+  color: #333;
+  text-shadow: none; /* Prevent inheritance from `body` */
+  background-color: #fff;
+  border: 1px solid #fff;
+}
+#hero-image{
+  background-color: #000;
+  opacity: 0.55;
+}
+#gio-pic{
+  width: 20%;
+  min-width: 150px;
+}
+#gio-intro-mobile{
+  display: none;
+}
+
+#overlay-pitch{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-45%);
+}
+#showcase-section{
+  background-color: #293D59;
+  display: none;
+}
+#showcase-info{
+  padding: 3%;
+  width: 44%;
+  display: inline-block;
+}
+#showcase-image{
+  max-width: 600px;
+  padding: 3%;
+  width: 50%;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 8%;
+}
+/* Extra markup and styles for table-esque vertical and horizontal centering */
+.site-wrapper {
+  display: table;
+  width: 100%;
+  height: 100%; /* For at least Firefox */
+  min-height: 100%;
+  -webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+          box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+}
+.site-wrapper-inner {
+  display: table-cell;
+  vertical-align: top;
+}
+
+.navbar {
+  background-color: #fff;
+}
+/* Padding for spacing */
+.inner {
+  padding: 2%;
+}
+
+.quote{
+  position: absolute;
+  right: 5%;
+  bottom: 30%;
+  font-style: italic;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+}
+
+
+/*
+ * Header
+ */
+
+.photo-grid li:hover figcaption {
+  opacity: 1;
+}
+.photo-grid {
+  margin: 1em auto;
+  text-align: center;
+}
+
+.photo-grid li {
+  border: 5px solid white;
+  display: inline-block;
+  margin: 1em;
+  width: 350px;
+}
+
+.photo-grid img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+.photo-grid figure {
+  height: 212px;
+  overflow: hidden;
+  position: relative;
+  width: 350px;
+  border: 2px solid #0000004a;
+}
+
+.photo-grid figcaption {
+  background: rgba(0,0,0,0.8);
+  color: white;
+  display: table;
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 100;
+}
+
+.photo-grid figcaption p {
+  display: table-cell;
+  font-size: 1.5em;
+  position: relative;
+  top: -40px;
+  width: 350px;
+  vertical-align: middle;
+}
+.photo-grid img {
+  display: block;
+  height: auto;
+  -webkit-transition: all 300ms;
+  -moz-transition: all 300ms;
+  transition: all 300ms;
+  max-width: 100%;
+}
+
+.photo-grid li:hover img {
+  -webkit-transform: scale(1.4);
+  -moz-transform: scale(1.4);
+  transform: scale(1.4);
+}
+.photo-grid figcaption p {
+  display: table-cell;
+  font-size: 1.5em;
+  position: relative;
+  top: -40px;
+  width: 350px;
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+  vertical-align: middle;
+}
+
+.photo-grid li:hover figcaption p {
+  -moz-transform: translateY(40px);
+  -webkit-transform: translateY(40px);
+  transform: translateY(40px);
+}
+
+
+.photo-grid figcaption {
+  background: rgba(0,0,0,0.8);
+  color: white;
+  display: table;
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  -webkit-transition: all 300ms;
+  -moz-transition: all 300ms;
+  transition: all 300ms;
+  -webkit-transition-delay: 100ms;
+  -moz-transition-delay: 100ms;
+  transition-delay: 100ms;
+  z-index: 100;
+}
+.masthead-brand {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.masthead-nav > li {
+  display: inline-block;
+}
+.masthead-nav > li + li {
+  margin-left: 20px;
+}
+.masthead-nav > li > a {
+  padding-right: 0;
+  padding-left: 0;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff; /* IE8 proofing */
+  border-bottom: 2px solid transparent;
+}
+.masthead-nav > li > a:hover,
+.masthead-nav > li > a:focus {
+  background-color: transparent;
+  border-bottom-color: #fff;
+  border-bottom-color: #fff;
+}
+.masthead-nav > .active > a,
+.masthead-nav > .active > a:hover,
+.masthead-nav > .active > a:focus {
+  color: #000;
+  border-bottom: 0px
+}
+/*
+ * Cover
+ */
+
+.cover {
+  padding: 0 20px;
+}
+.cover .btn-lg {
+  padding: 10px 20px;
+  font-weight: bold;
+}
+
+/*
+ * Footer
+ */
+
+.mastfoot {
+  color: #999; /* IE8 proofing */
+  color: rgba(255,255,255,.5);
+}
+
+.floating{
+float: right;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 10s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+
+/*
+ * Affix and center
+ */
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@media(max-width: 589px){
+  #gio-pic{
+    -webkit-transform: translateY(0) scale(1) !important;
+    opacity: 1 !important;
+    transform: translateY(0) scale(1) !important;
+    transition: transform 0.5s cubic-bezier(0.6, 0.2, 0.1, 1) 0.2s, opacity 0.5s cubic-bezier(0.6, 0.2, 0.1, 1) 0.2s, transform 0.5s cubic-bezier(0.6, 0.2, 0.1, 1) 0.2s, opacity 0.5s cubic-bezier(0.6, 0.2, 0.1, 1) 0.2s;
+  }
+}
+@media(max-width: 767px){
+  
+  .no-gutter{
+      padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+@media(max-width: 1100px){
+  .lead{
+    font-size: 18px;
+  }
+  #overlay-pitch{
+    width: 70%;
+  }
+}
+@media (min-width: 992px) {
+  .masthead,
+  .mastfoot,
+  .cover-container {
+    width: 100%; /* Must be percentage or pixels for horizontal alignment */
+    position: fixed;
+    top: 0;
+  }
+}
+@media (min-width: 768px) {
+  /* Pull out the header and footer */
+  .masthead-brand {
+    float: left;
+  }
+  .masthead-nav {
+    float: right;
+  }
+  .masthead {
+    position: absolute;
+    top: 0;
+  }
+  
+  .mastfoot {
+    position: fixed;
+    bottom: 0;
+  }
+  /* Start the vertical centering */
+  .site-wrapper-inner {
+    vertical-align: middle;
+  }
+  /* Handle the widths */
+  .masthead,
+  .mastfoot,
+  .cover-container {
+    width: 100%; /* Must be percentage or pixels for horizontal alignment */
+    position: fixed;
+    top: 0;
+  }
+}
+@media (max-width: 900px) {
+  .no-gutter{
+      padding-right: 15px;
+    padding-left: 15px;
+  }
+  #overlay-pitch{
+    width: 80%;
+  }
+  #showcase-info{
+    width: 90%;
+    padding: 5%;
+  }
+  #showcase-image{
+    width: 90%;
+    padding: 5%;
+  }
+}
+@media (max-width: 710px) {
+  #gio-intro{
+    display: none;
+  }
+  #gio-pic{
+    min-width: 200px;
+  }
+  #gio-intro-mobile{
+    display: block;
+    background-color: #333;
+  }
+}

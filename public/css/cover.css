@@ -1,0 +1,23 @@
+.navbar-inverse {
+	background-color: #1c5d96;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #fff;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: #fff;
+}
+
+.navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
+    background-color: #7a98d0;
+}
+.btn-default {
+    color: #fff;
+    background-color: #337ab7;
+}
+.btn-default:hover {
+    color: #000;
+    background-color: #fff;
+}

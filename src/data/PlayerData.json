@@ -1,0 +1,2866 @@
+[
+  {
+    "id": 10001,
+    "name": "Drake Kon",
+    "team": "AB",
+    "conference": "CAC",
+    "pr": 8,
+    "points": 1600
+  },
+  {
+    "id": 10002,
+    "name": "Martin Gerabu",
+    "team": "AB",
+    "conference": "CAC",
+    "pr": 7,
+    "points": 1200
+  },
+  {
+    "id": 10003,
+    "name": "Edward Caruso",
+    "team": "AB",
+    "conference": "CAC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10004,
+    "name": "Victor Boynton",
+    "team": "AB",
+    "conference": "CAC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10005,
+    "name": "Xayan Kilinthc",
+    "team": "AB",
+    "conference": "CAC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10006,
+    "name": "Junior Alexander Abalo",
+    "team": "AB",
+    "conference": "CAC",
+    "pr": 2,
+    "points": ""
+  },
+  {
+    "id": 10007,
+    "name": "Joseph Karhar",
+    "team": "AB",
+    "conference": "",
+    "pr": "",
+    "points": ""
+  },
+  {
+    "id": 10008,
+    "name": "Casey Nunavarik",
+    "team": "AK",
+    "conference": "CAC",
+    "pr": 6,
+    "points": ""
+  },
+  {
+    "id": 10009,
+    "name": "Aldi Romero",
+    "team": "AK",
+    "conference": "CAC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10010,
+    "name": "Ryan Shazeer",
+    "team": "AK",
+    "conference": "CAC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10011,
+    "name": "Fared Aziri",
+    "team": "AK",
+    "conference": "CAC",
+    "pr": 2,
+    "points": ""
+  },
+  {
+    "id": 10012,
+    "name": "Darien Summers",
+    "team": "AK",
+    "conference": "CAC",
+    "pr": 2,
+    "points": ""
+  },
+  {
+    "id": 10013,
+    "name": "Arnold Besham",
+    "team": "AK",
+    "conference": "CAC",
+    "pr": 2,
+    "points": ""
+  },
+  {
+    "id": 10014,
+    "name": "Jermaine Foster",
+    "team": "AL",
+    "conference": "SAC",
+    "pr": 9,
+    "points": 2300
+  },
+  {
+    "id": 10015,
+    "name": "Konstantine Chapenko",
+    "team": "AL",
+    "conference": "SAC",
+    "pr": 6,
+    "points": ""
+  },
+  {
+    "id": 10016,
+    "name": "Herman Parshath",
+    "team": "AL",
+    "conference": "SAC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10017,
+    "name": "Emilio Borten",
+    "team": "AL",
+    "conference": "SAC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10018,
+    "name": "Jeremy Boa",
+    "team": "AL",
+    "conference": "SAC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10019,
+    "name": "Miles Veructer",
+    "team": "AL",
+    "conference": "SAC",
+    "pr": 2,
+    "points": ""
+  },
+  {
+    "id": 10020,
+    "name": "David Fenseller",
+    "team": "AL",
+    "conference": "",
+    "pr": "",
+    "points": ""
+  },
+  {
+    "id": 10021,
+    "name": "Logan Kaijunes",
+    "team": "AR",
+    "conference": "MWC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10022,
+    "name": "Jerzy Aikanowitz",
+    "team": "AR",
+    "conference": "MWC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10023,
+    "name": "Wilcox Komoto",
+    "team": "AR",
+    "conference": "MWC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10024,
+    "name": "Erwin Walagoski",
+    "team": "AR",
+    "conference": "MWC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10025,
+    "name": "Davie O'Connor",
+    "team": "AR",
+    "conference": "MWC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10026,
+    "name": "Ramon Kavlar",
+    "team": "AR",
+    "conference": "MWC",
+    "pr": 2,
+    "points": ""
+  },
+  {
+    "id": 10027,
+    "name": "Patrick Briande",
+    "team": "AZ",
+    "conference": "WCC",
+    "pr": 7,
+    "points": 1270
+  },
+  {
+    "id": 10028,
+    "name": "Leo Vonleh",
+    "team": "AZ",
+    "conference": "WCC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10029,
+    "name": "Frederick Menor",
+    "team": "AZ",
+    "conference": "WCC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10030,
+    "name": "Augustus Kiernan",
+    "team": "AZ",
+    "conference": "WCC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10031,
+    "name": "Junior Brigham",
+    "team": "AZ",
+    "conference": "WCC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10032,
+    "name": "Ivan Eses",
+    "team": "AZ",
+    "conference": "WCC",
+    "pr": 2,
+    "points": ""
+  },
+  {
+    "id": 10033,
+    "name": "Patrick Warhol",
+    "team": "BC",
+    "conference": "CAC",
+    "pr": 8,
+    "points": 1700
+  },
+  {
+    "id": 10034,
+    "name": "Karen Lockhart",
+    "team": "BC",
+    "conference": "CAC",
+    "pr": 7,
+    "points": 1240
+  },
+  {
+    "id": 10035,
+    "name": "Boris Andromikov",
+    "team": "BC",
+    "conference": "CAC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10036,
+    "name": "Joshua Desoto",
+    "team": "BC",
+    "conference": "CAC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10037,
+    "name": "Raymond Koloss",
+    "team": "BC",
+    "conference": "CAC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10038,
+    "name": "Victor Stormans",
+    "team": "BC",
+    "conference": "CAC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10039,
+    "name": "Govian Johnson",
+    "team": "CO",
+    "conference": "RMC",
+    "pr": 7,
+    "points": 1390
+  },
+  {
+    "id": 10040,
+    "name": "Erik Poliath",
+    "team": "CO",
+    "conference": "RMC",
+    "pr": 7,
+    "points": ""
+  },
+  {
+    "id": 10041,
+    "name": "Adam Kippur",
+    "team": "CO",
+    "conference": "RMC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10042,
+    "name": "Boris Kruegerli",
+    "team": "CO",
+    "conference": "RMC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10043,
+    "name": "Philip Necrode",
+    "team": "CO",
+    "conference": "RMC",
+    "pr": 2,
+    "points": ""
+  },
+  {
+    "id": 10044,
+    "name": "Adam Rubenishad",
+    "team": "CO",
+    "conference": "RMC",
+    "pr": 2,
+    "points": ""
+  },
+  {
+    "id": 10045,
+    "name": "Vitorek Spear",
+    "team": "CT",
+    "conference": "NEC",
+    "pr": 6,
+    "points": ""
+  },
+  {
+    "id": 10046,
+    "name": "Henry Elesi",
+    "team": "CT",
+    "conference": "NEC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10047,
+    "name": "Jayson Klaybourne",
+    "team": "CT",
+    "conference": "NEC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10048,
+    "name": "Flavity Barbaya",
+    "team": "CT",
+    "conference": "NEC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10049,
+    "name": "Archaiv Thornton",
+    "team": "CT",
+    "conference": "NEC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10050,
+    "name": "Ken Abbotts Ford",
+    "team": "CT",
+    "conference": "NEC",
+    "pr": 2,
+    "points": ""
+  },
+  {
+    "id": 10051,
+    "name": "Ivannik Pedigrew",
+    "team": "DE",
+    "conference": "NEC",
+    "pr": 6,
+    "points": ""
+  },
+  {
+    "id": 10052,
+    "name": "Guillermo Saba",
+    "team": "DE",
+    "conference": "NEC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10053,
+    "name": "Wesley Kokoran",
+    "team": "DE",
+    "conference": "NEC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10054,
+    "name": "Ian Botten",
+    "team": "DE",
+    "conference": "NEC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10055,
+    "name": "Bryant Mion",
+    "team": "DE",
+    "conference": "NEC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10056,
+    "name": "Solimar Rodriguez",
+    "team": "DE",
+    "conference": "NEC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10057,
+    "name": "Scheyer Berman",
+    "team": "FL",
+    "conference": "SAC",
+    "pr": 9,
+    "points": 2150
+  },
+  {
+    "id": 10058,
+    "name": "Marssi Maklodas",
+    "team": "FL",
+    "conference": "SAC",
+    "pr": 7,
+    "points": 1220
+  },
+  {
+    "id": 10059,
+    "name": "Emelyan Wergo",
+    "team": "FL",
+    "conference": "SAC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10060,
+    "name": "James Herklov",
+    "team": "FL",
+    "conference": "SAC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10061,
+    "name": "Kyle Kibu",
+    "team": "FL",
+    "conference": "SAC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10062,
+    "name": "Moses Calero",
+    "team": "FL",
+    "conference": "SAC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10063,
+    "name": "Igor Klaybourne",
+    "team": "FL",
+    "conference": "",
+    "pr": "",
+    "points": ""
+  },
+  {
+    "id": 10064,
+    "name": "Zendaya Harrison",
+    "team": "FL",
+    "conference": "",
+    "pr": "",
+    "points": ""
+  },
+  {
+    "id": 10065,
+    "name": "Charley Charlemagne",
+    "team": "GA",
+    "conference": "SAC",
+    "pr": 7,
+    "points": 1320
+  },
+  {
+    "id": 10066,
+    "name": "Clint Girasi",
+    "team": "GA",
+    "conference": "SAC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10067,
+    "name": "Jared O. Templar",
+    "team": "GA",
+    "conference": "SAC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10068,
+    "name": "Adrevalid Cox",
+    "team": "GA",
+    "conference": "SAC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10069,
+    "name": "Shane Trodsky",
+    "team": "GA",
+    "conference": "SAC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10070,
+    "name": "Maci Awundu",
+    "team": "GA",
+    "conference": "SAC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10071,
+    "name": "Hosea Arkland",
+    "team": "HI",
+    "conference": "WCC",
+    "pr": 6,
+    "points": 1150
+  },
+  {
+    "id": 10072,
+    "name": "Paral Idoh",
+    "team": "HI",
+    "conference": "WCC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10073,
+    "name": "Paras Aribo",
+    "team": "HI",
+    "conference": "WCC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10074,
+    "name": "Quinton Bernard",
+    "team": "HI",
+    "conference": "WCC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10075,
+    "name": "Boston Mason",
+    "team": "HI",
+    "conference": "WCC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10076,
+    "name": "Cameron Karki",
+    "team": "HI",
+    "conference": "WCC",
+    "pr": 2,
+    "points": ""
+  },
+  {
+    "id": 10077,
+    "name": "Zackary Luzlulla",
+    "team": "IA",
+    "conference": "GLC",
+    "pr": 6,
+    "points": ""
+  },
+  {
+    "id": 10078,
+    "name": "Remedia Acalcolus",
+    "team": "IA",
+    "conference": "GLC",
+    "pr": 6,
+    "points": ""
+  },
+  {
+    "id": 10079,
+    "name": "Leonardo Vintler",
+    "team": "IA",
+    "conference": "GLC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10080,
+    "name": "Dennis Overly",
+    "team": "IA",
+    "conference": "GLC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10081,
+    "name": "Stephen Vaidu",
+    "team": "IA",
+    "conference": "GLC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10082,
+    "name": "Lawrence Calloway",
+    "team": "IA",
+    "conference": "GLC",
+    "pr": 2,
+    "points": ""
+  },
+  {
+    "id": 10083,
+    "name": "Peyton Gyrakonos",
+    "team": "ID",
+    "conference": "WCC",
+    "pr": 7,
+    "points": 1160
+  },
+  {
+    "id": 10084,
+    "name": "Eddie Talmagiari",
+    "team": "ID",
+    "conference": "WCC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10085,
+    "name": "Donovan Oleka",
+    "team": "ID",
+    "conference": "WCC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10086,
+    "name": "Rvon Yavik",
+    "team": "ID",
+    "conference": "WCC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10087,
+    "name": "Shaeffer Ellison",
+    "team": "ID",
+    "conference": "WCC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10088,
+    "name": "Rubio Klorev",
+    "team": "ID",
+    "conference": "WCC",
+    "pr": 2,
+    "points": ""
+  },
+  {
+    "id": 10089,
+    "name": "Kyle Cominceau",
+    "team": "IL",
+    "conference": "GLC",
+    "pr": 7,
+    "points": 1250
+  },
+  {
+    "id": 10090,
+    "name": "Charlie Chovikov",
+    "team": "IL",
+    "conference": "GLC",
+    "pr": 6,
+    "points": ""
+  },
+  {
+    "id": 10091,
+    "name": "Charlotte Karwin",
+    "team": "IL",
+    "conference": "GLC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10092,
+    "name": "Alexander Klementine",
+    "team": "IL",
+    "conference": "GLC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10093,
+    "name": "Colin Cualiquilar",
+    "team": "IL",
+    "conference": "GLC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10094,
+    "name": "James Dockon",
+    "team": "IL",
+    "conference": "GLC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10095,
+    "name": "Alexander Popesil",
+    "team": "IN",
+    "conference": "GLC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10096,
+    "name": "Roy Ungar",
+    "team": "IN",
+    "conference": "GLC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10097,
+    "name": "Edward Rohanak",
+    "team": "IN",
+    "conference": "GLC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10098,
+    "name": "Denzel Okur",
+    "team": "IN",
+    "conference": "GLC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10099,
+    "name": "Lorenzo Malik",
+    "team": "IN",
+    "conference": "GLC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10100,
+    "name": "Jaylen Opacao",
+    "team": "IN",
+    "conference": "GLC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10101,
+    "name": "Asher Daynes",
+    "team": "KS",
+    "conference": "MWC",
+    "pr": 6,
+    "points": ""
+  },
+  {
+    "id": 10102,
+    "name": "Bobby Quarteharr",
+    "team": "KS",
+    "conference": "MWC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10103,
+    "name": "Britton Malekoses",
+    "team": "KS",
+    "conference": "MWC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10104,
+    "name": "Billy Kurtz",
+    "team": "KS",
+    "conference": "MWC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10105,
+    "name": "Donald Aguirre",
+    "team": "KS",
+    "conference": "MWC",
+    "pr": 2,
+    "points": ""
+  },
+  {
+    "id": 10106,
+    "name": "Rozal Meister",
+    "team": "KS",
+    "conference": "MWC",
+    "pr": 2,
+    "points": ""
+  },
+  {
+    "id": 10107,
+    "name": "Fernando Ankard",
+    "team": "KY",
+    "conference": "GLC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10108,
+    "name": "Pablo Marren",
+    "team": "KY",
+    "conference": "GLC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10109,
+    "name": "Marius Kopono",
+    "team": "KY",
+    "conference": "GLC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10110,
+    "name": "Dylan Asandre",
+    "team": "KY",
+    "conference": "GLC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10111,
+    "name": "Fred Von Vessens",
+    "team": "KY",
+    "conference": "GLC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10112,
+    "name": "Don Klivanks",
+    "team": "KY",
+    "conference": "GLC",
+    "pr": 2,
+    "points": ""
+  },
+  {
+    "id": 10113,
+    "name": "Henry Fogghauser",
+    "team": "KY",
+    "conference": "",
+    "pr": "",
+    "points": ""
+  },
+  {
+    "id": 10114,
+    "name": "Max Kovrignon",
+    "team": "KY",
+    "conference": "",
+    "pr": "",
+    "points": ""
+  },
+  {
+    "id": 10115,
+    "name": "Patrik Minaro",
+    "team": "LA",
+    "conference": "MWC",
+    "pr": 10,
+    "points": 2100
+  },
+  {
+    "id": 10116,
+    "name": "Erik Valkyrie",
+    "team": "LA",
+    "conference": "MWC",
+    "pr": 6,
+    "points": ""
+  },
+  {
+    "id": 10117,
+    "name": "Vince Pargo",
+    "team": "LA",
+    "conference": "MWC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10118,
+    "name": "Hadrien Tarpen",
+    "team": "LA",
+    "conference": "MWC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10119,
+    "name": "David Dartz",
+    "team": "LA",
+    "conference": "MWC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10120,
+    "name": "Tyler Basciaso",
+    "team": "LA",
+    "conference": "MWC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10121,
+    "name": "Curtis Kurdishian",
+    "team": "MA",
+    "conference": "NEC",
+    "pr": 6,
+    "points": ""
+  },
+  {
+    "id": 10122,
+    "name": "Trinity Flaquo",
+    "team": "MA",
+    "conference": "NEC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10123,
+    "name": "Christian McGrath",
+    "team": "MA",
+    "conference": "NEC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10124,
+    "name": "Frederico Archburo",
+    "team": "MA",
+    "conference": "NEC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10125,
+    "name": "Ezekiel Kurtropolous",
+    "team": "MA",
+    "conference": "NEC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10126,
+    "name": "Eddy Olarik",
+    "team": "MA",
+    "conference": "NEC",
+    "pr": 2,
+    "points": ""
+  },
+  {
+    "id": 10127,
+    "name": "Dwyane Thomas Ester",
+    "team": "MA",
+    "conference": "",
+    "pr": "",
+    "points": ""
+  },
+  {
+    "id": 10128,
+    "name": "Rubi Kofsgaard",
+    "team": "MD",
+    "conference": "NEC",
+    "pr": 7,
+    "points": 1200
+  },
+  {
+    "id": 10129,
+    "name": "Ryan Atlai",
+    "team": "MD",
+    "conference": "NEC",
+    "pr": 6,
+    "points": ""
+  },
+  {
+    "id": 10130,
+    "name": "Olegga Hespew",
+    "team": "MD",
+    "conference": "NEC",
+    "pr": 6,
+    "points": ""
+  },
+  {
+    "id": 10131,
+    "name": "Ford Mikhuorov",
+    "team": "MD",
+    "conference": "NEC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10132,
+    "name": "Jason Harborough",
+    "team": "MD",
+    "conference": "NEC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10133,
+    "name": "Ryan Verdokeo",
+    "team": "MD",
+    "conference": "NEC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10134,
+    "name": "Allan O'Bannister",
+    "team": "ME",
+    "conference": "CAC",
+    "pr": 6,
+    "points": ""
+  },
+  {
+    "id": 10135,
+    "name": "Keabu Harris",
+    "team": "ME",
+    "conference": "CAC",
+    "pr": 6,
+    "points": ""
+  },
+  {
+    "id": 10136,
+    "name": "Jonas Hobakkaren",
+    "team": "ME",
+    "conference": "CAC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10137,
+    "name": "Gannon Hartchinson",
+    "team": "ME",
+    "conference": "CAC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10138,
+    "name": "Rozi Kellehar",
+    "team": "ME",
+    "conference": "CAC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10139,
+    "name": "Darrel Kanaan",
+    "team": "ME",
+    "conference": "CAC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10140,
+    "name": "Brynn Calstro",
+    "team": "MI",
+    "conference": "GLC",
+    "pr": 9,
+    "points": 2500
+  },
+  {
+    "id": 10141,
+    "name": "Stewart McGlocklin",
+    "team": "MI",
+    "conference": "GLC",
+    "pr": 8,
+    "points": 1545
+  },
+  {
+    "id": 10142,
+    "name": "Darren Ohkalu",
+    "team": "MI",
+    "conference": "GLC",
+    "pr": 7,
+    "points": 1680
+  },
+  {
+    "id": 10143,
+    "name": "Oswaldo Searson",
+    "team": "MI",
+    "conference": "GLC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10144,
+    "name": "Eugene Martinac",
+    "team": "MI",
+    "conference": "GLC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10145,
+    "name": "Max Jigero",
+    "team": "MI",
+    "conference": "GLC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10146,
+    "name": "Charles Cuovo",
+    "team": "MN",
+    "conference": "GLC",
+    "pr": 10,
+    "points": 1850
+  },
+  {
+    "id": 10147,
+    "name": "Dwayne MacArthur",
+    "team": "MN",
+    "conference": "GLC",
+    "pr": 7,
+    "points": 1510
+  },
+  {
+    "id": 10148,
+    "name": "Thomas Gladity",
+    "team": "MN",
+    "conference": "GLC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10149,
+    "name": "Ungar Zerovin",
+    "team": "MN",
+    "conference": "GLC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10150,
+    "name": "Tobias Klemenov",
+    "team": "MN",
+    "conference": "GLC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10151,
+    "name": "Solfak Boriani",
+    "team": "MN",
+    "conference": "GLC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10152,
+    "name": "Troy Tribitski",
+    "team": "MO",
+    "conference": "MWC",
+    "pr": 10,
+    "points": 2900
+  },
+  {
+    "id": 10153,
+    "name": "Gianni Harquo",
+    "team": "MO",
+    "conference": "MWC",
+    "pr": 6,
+    "points": ""
+  },
+  {
+    "id": 10154,
+    "name": "Miguel Karsering",
+    "team": "MO",
+    "conference": "MWC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10155,
+    "name": "Raymond Serafagos",
+    "team": "MO",
+    "conference": "MWC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10156,
+    "name": "Walter McGary",
+    "team": "MO",
+    "conference": "MWC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10157,
+    "name": "Wade Karsering",
+    "team": "MO",
+    "conference": "MWC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10158,
+    "name": "Mauricio Teller",
+    "team": "MO",
+    "conference": "",
+    "pr": "",
+    "points": ""
+  },
+  {
+    "id": 10159,
+    "name": "Benjamin Arco",
+    "team": "MS",
+    "conference": "MWC",
+    "pr": 7,
+    "points": 1285
+  },
+  {
+    "id": 10160,
+    "name": "Arkow Fedorak",
+    "team": "MS",
+    "conference": "MWC",
+    "pr": 6,
+    "points": ""
+  },
+  {
+    "id": 10161,
+    "name": "Arman Garri",
+    "team": "MS",
+    "conference": "MWC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10162,
+    "name": "Sullivan Otmi",
+    "team": "MS",
+    "conference": "MWC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10163,
+    "name": "Kaffelany Delorasovic",
+    "team": "MS",
+    "conference": "MWC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10164,
+    "name": "Mustafa Karlsson",
+    "team": "MS",
+    "conference": "MWC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10165,
+    "name": "Minek Vittero",
+    "team": "MT",
+    "conference": "RMC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10166,
+    "name": "Tobias Zeller",
+    "team": "MT",
+    "conference": "RMC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10167,
+    "name": "Clayton Gerschwitz",
+    "team": "MT",
+    "conference": "RMC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10168,
+    "name": "Parker Diarro",
+    "team": "MT",
+    "conference": "RMC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10169,
+    "name": "Harry Boucher",
+    "team": "MT",
+    "conference": "RMC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10170,
+    "name": "Brett Sharon",
+    "team": "MT",
+    "conference": "RMC",
+    "pr": 2,
+    "points": ""
+  },
+  {
+    "id": 10171,
+    "name": "Sylvester Salishan",
+    "team": "NC",
+    "conference": "SAC",
+    "pr": 8,
+    "points": 1465
+  },
+  {
+    "id": 10172,
+    "name": "Desmond Bresseaux",
+    "team": "NC",
+    "conference": "SAC",
+    "pr": 6,
+    "points": ""
+  },
+  {
+    "id": 10173,
+    "name": "Yuba Michols",
+    "team": "NC",
+    "conference": "SAC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10174,
+    "name": "Roberto Kelsigg",
+    "team": "NC",
+    "conference": "SAC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10175,
+    "name": "Otin Kracao",
+    "team": "NC",
+    "conference": "SAC",
+    "pr": 2,
+    "points": ""
+  },
+  {
+    "id": 10176,
+    "name": "Maddist Rossi",
+    "team": "NC",
+    "conference": "SAC",
+    "pr": 2,
+    "points": ""
+  },
+  {
+    "id": 10177,
+    "name": "Kyle Coffering",
+    "team": "NC",
+    "conference": "",
+    "pr": "",
+    "points": ""
+  },
+  {
+    "id": 10178,
+    "name": "Sasha Bovirin",
+    "team": "NCA",
+    "conference": "WCC",
+    "pr": 8,
+    "points": 1650
+  },
+  {
+    "id": 10179,
+    "name": "Arthur Vriok",
+    "team": "NCA",
+    "conference": "WCC",
+    "pr": 6,
+    "points": ""
+  },
+  {
+    "id": 10180,
+    "name": "Franklin Delorasio",
+    "team": "NCA",
+    "conference": "WCC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10181,
+    "name": "Maden Serafagos",
+    "team": "NCA",
+    "conference": "WCC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10182,
+    "name": "Dili Rapenzio",
+    "team": "NCA",
+    "conference": "WCC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10183,
+    "name": "Blake Charleston",
+    "team": "NCA",
+    "conference": "WCC",
+    "pr": 2,
+    "points": ""
+  },
+  {
+    "id": 10184,
+    "name": "Brooke Schroder",
+    "team": "ND",
+    "conference": "RMC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10185,
+    "name": "Tofftsen Karr",
+    "team": "ND",
+    "conference": "RMC",
+    "pr": 2,
+    "points": ""
+  },
+  {
+    "id": 10186,
+    "name": "Jerry Lappord",
+    "team": "ND",
+    "conference": "RMC",
+    "pr": 2,
+    "points": ""
+  },
+  {
+    "id": 10187,
+    "name": "Andrew Finky",
+    "team": "ND",
+    "conference": "RMC",
+    "pr": 2,
+    "points": ""
+  },
+  {
+    "id": 10188,
+    "name": "Lukas Jesztberg",
+    "team": "ND",
+    "conference": "RMC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10189,
+    "name": "Ryan Paxton",
+    "team": "ND",
+    "conference": "RMC",
+    "pr": 2,
+    "points": ""
+  },
+  {
+    "id": 10190,
+    "name": "Joel Kibolarov",
+    "team": "NE",
+    "conference": "RMC",
+    "pr": 6,
+    "points": ""
+  },
+  {
+    "id": 10191,
+    "name": "Thomas Lorance",
+    "team": "NE",
+    "conference": "RMC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10192,
+    "name": "Francisco Delacore",
+    "team": "NE",
+    "conference": "RMC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10193,
+    "name": "Adrian Svelbaarden",
+    "team": "NE",
+    "conference": "RMC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10194,
+    "name": "Liam Pollard",
+    "team": "NE",
+    "conference": "RMC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10195,
+    "name": "Edward Solonin",
+    "team": "NE",
+    "conference": "RMC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10196,
+    "name": "Richie Klowans",
+    "team": "NE",
+    "conference": "",
+    "pr": "",
+    "points": ""
+  },
+  {
+    "id": 10197,
+    "name": "Haden Kofsgaard",
+    "team": "NH",
+    "conference": "CAC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10198,
+    "name": "Quinn Karzan",
+    "team": "NH",
+    "conference": "CAC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10199,
+    "name": "Duke Forchinet",
+    "team": "NH",
+    "conference": "CAC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10200,
+    "name": "Richard Chardinelli",
+    "team": "NH",
+    "conference": "CAC",
+    "pr": 2,
+    "points": ""
+  },
+  {
+    "id": 10201,
+    "name": "Damon Claros",
+    "team": "NH",
+    "conference": "CAC",
+    "pr": 2,
+    "points": ""
+  },
+  {
+    "id": 10202,
+    "name": "Sebastian Faulk",
+    "team": "NH",
+    "conference": "CAC",
+    "pr": 2,
+    "points": ""
+  },
+  {
+    "id": 10203,
+    "name": "Chase Ribottanik",
+    "team": "NJ",
+    "conference": "NEC",
+    "pr": 8,
+    "points": 1500
+  },
+  {
+    "id": 10204,
+    "name": "Aaron Athielago",
+    "team": "NJ",
+    "conference": "NEC",
+    "pr": 7,
+    "points": 1420
+  },
+  {
+    "id": 10205,
+    "name": "Leonard Marqard",
+    "team": "NJ",
+    "conference": "NEC",
+    "pr": 7,
+    "points": 1230
+  },
+  {
+    "id": 10206,
+    "name": "Sebastian Marroquin",
+    "team": "NJ",
+    "conference": "NEC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10207,
+    "name": "Tyler Ginkaneros",
+    "team": "NJ",
+    "conference": "NEC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10208,
+    "name": "Leon Govortik",
+    "team": "NJ",
+    "conference": "NEC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10209,
+    "name": "Daniel Hackering",
+    "team": "NM",
+    "conference": "RMC",
+    "pr": 10,
+    "points": 1970
+  },
+  {
+    "id": 10210,
+    "name": "Arturo Diavik",
+    "team": "NM",
+    "conference": "RMC",
+    "pr": 7,
+    "points": ""
+  },
+  {
+    "id": 10211,
+    "name": "Shannon Fosgrove",
+    "team": "NM",
+    "conference": "RMC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10212,
+    "name": "Noah Konjur",
+    "team": "NM",
+    "conference": "RMC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10213,
+    "name": "Lifreliti Mianmar",
+    "team": "NM",
+    "conference": "RMC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10214,
+    "name": "Oriskali Tamlavar",
+    "team": "NM",
+    "conference": "RMC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10215,
+    "name": "Louie Kennarick",
+    "team": "NV",
+    "conference": "WCC",
+    "pr": 6,
+    "points": ""
+  },
+  {
+    "id": 10216,
+    "name": "Aindreadik Pospisil",
+    "team": "NV",
+    "conference": "WCC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10217,
+    "name": "Bruno Orrego",
+    "team": "NV",
+    "conference": "WCC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10218,
+    "name": "William Sekuro",
+    "team": "NV",
+    "conference": "WCC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10219,
+    "name": "Iko Romano",
+    "team": "NV",
+    "conference": "WCC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10220,
+    "name": "Memet Ohkalu",
+    "team": "NV",
+    "conference": "WCC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10221,
+    "name": "Schaiche Wanabou",
+    "team": "NY",
+    "conference": "NEC",
+    "pr": 7,
+    "points": 1410
+  },
+  {
+    "id": 10222,
+    "name": "Floyd Kwalzeghe",
+    "team": "NY",
+    "conference": "NEC",
+    "pr": 6,
+    "points": ""
+  },
+  {
+    "id": 10223,
+    "name": "Max E. Morrough",
+    "team": "NY",
+    "conference": "NEC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10224,
+    "name": "Bonifacio Carin",
+    "team": "NY",
+    "conference": "NEC",
+    "pr": 7,
+    "points": ""
+  },
+  {
+    "id": 10225,
+    "name": "Riaan Pain",
+    "team": "NY",
+    "conference": "NEC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10226,
+    "name": "Algonquin Phoenix",
+    "team": "NY",
+    "conference": "NEC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10227,
+    "name": "Aryan Okkanis",
+    "team": "NY",
+    "conference": "",
+    "pr": "",
+    "points": ""
+  },
+  {
+    "id": 10228,
+    "name": "Quinne Piardo",
+    "team": "OH",
+    "conference": "GLC",
+    "pr": 11,
+    "points": 2800
+  },
+  {
+    "id": 10229,
+    "name": "Erik Lupol",
+    "team": "OH",
+    "conference": "GLC",
+    "pr": 7,
+    "points": ""
+  },
+  {
+    "id": 10230,
+    "name": "Balschek Romerio",
+    "team": "OH",
+    "conference": "GLC",
+    "pr": 6,
+    "points": ""
+  },
+  {
+    "id": 10231,
+    "name": "Jenson Liotta",
+    "team": "OH",
+    "conference": "GLC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10232,
+    "name": "William Woehr",
+    "team": "OH",
+    "conference": "GLC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10233,
+    "name": "Pakkard Cohi",
+    "team": "OH",
+    "conference": "GLC",
+    "pr": 2,
+    "points": ""
+  },
+  {
+    "id": 10234,
+    "name": "Orlando Cisneros",
+    "team": "OH",
+    "conference": "",
+    "pr": "",
+    "points": ""
+  },
+  {
+    "id": 10235,
+    "name": "Lucas Martinez",
+    "team": "OK",
+    "conference": "MWC",
+    "pr": 10,
+    "points": 3000
+  },
+  {
+    "id": 10236,
+    "name": "Tim Mertinek",
+    "team": "OK",
+    "conference": "MWC",
+    "pr": 6,
+    "points": ""
+  },
+  {
+    "id": 10237,
+    "name": "Luka Gelbrich",
+    "team": "OK",
+    "conference": "MWC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10238,
+    "name": "Darian Ivakal",
+    "team": "OK",
+    "conference": "MWC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10239,
+    "name": "Jacob Arabos",
+    "team": "OK",
+    "conference": "MWC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10240,
+    "name": "Neel Petranik",
+    "team": "OK",
+    "conference": "MWC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10241,
+    "name": "Karyl Kwalzeghe",
+    "team": "ON",
+    "conference": "CAC",
+    "pr": 9,
+    "points": 2775
+  },
+  {
+    "id": 10242,
+    "name": "Jeremy Ehquiar",
+    "team": "ON",
+    "conference": "CAC",
+    "pr": 7,
+    "points": 1300
+  },
+  {
+    "id": 10243,
+    "name": "Earl Ivanklawe",
+    "team": "ON",
+    "conference": "CAC",
+    "pr": 7,
+    "points": 1200
+  },
+  {
+    "id": 10244,
+    "name": "Neave Coffisin",
+    "team": "ON",
+    "conference": "CAC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10245,
+    "name": "Morgan Ayeri",
+    "team": "ON",
+    "conference": "CAC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10246,
+    "name": "Sage Cerami",
+    "team": "ON",
+    "conference": "CAC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10247,
+    "name": "Austin Van Fleet",
+    "team": "ON",
+    "conference": "",
+    "pr": "",
+    "points": ""
+  },
+  {
+    "id": 10248,
+    "name": "Arthur Sabarak",
+    "team": "OR",
+    "conference": "WCC",
+    "pr": 8,
+    "points": 1450
+  },
+  {
+    "id": 10249,
+    "name": "Jarvis McDonald",
+    "team": "OR",
+    "conference": "WCC",
+    "pr": 7,
+    "points": ""
+  },
+  {
+    "id": 10250,
+    "name": "Renois Foye",
+    "team": "OR",
+    "conference": "WCC",
+    "pr": 6,
+    "points": ""
+  },
+  {
+    "id": 10251,
+    "name": "Noah Farrow",
+    "team": "OR",
+    "conference": "WCC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10252,
+    "name": "Giovanni Kardinov",
+    "team": "OR",
+    "conference": "WCC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10253,
+    "name": "Walker Lambier",
+    "team": "OR",
+    "conference": "WCC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10254,
+    "name": "Kai Jikasi",
+    "team": "PA",
+    "conference": "NEC",
+    "pr": 6,
+    "points": ""
+  },
+  {
+    "id": 10255,
+    "name": "Wesley Copenharo",
+    "team": "PA",
+    "conference": "NEC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10256,
+    "name": "Spencer Zaister",
+    "team": "PA",
+    "conference": "NEC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10257,
+    "name": "Vincent Zaister",
+    "team": "PA",
+    "conference": "NEC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10258,
+    "name": "Clark Pohlman",
+    "team": "PA",
+    "conference": "NEC",
+    "pr": 2,
+    "points": ""
+  },
+  {
+    "id": 10259,
+    "name": "Steven Blue",
+    "team": "PA",
+    "conference": "NEC",
+    "pr": 2,
+    "points": ""
+  },
+  {
+    "id": 10260,
+    "name": "Corey Nuñez",
+    "team": "PR",
+    "conference": "SAC",
+    "pr": 6,
+    "points": ""
+  },
+  {
+    "id": 10261,
+    "name": "Padris Serecar",
+    "team": "PR",
+    "conference": "SAC",
+    "pr": 5,
+    "points": 1155
+  },
+  {
+    "id": 10262,
+    "name": "Luis Centenario",
+    "team": "PR",
+    "conference": "SAC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10263,
+    "name": "Ragan Salazar",
+    "team": "PR",
+    "conference": "SAC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10264,
+    "name": "Cesario Fernandes",
+    "team": "PR",
+    "conference": "SAC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10265,
+    "name": "Hanzo Lorena",
+    "team": "PR",
+    "conference": "SAC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10266,
+    "name": "Laszlo Gutierrez",
+    "team": "PR",
+    "conference": "",
+    "pr": "",
+    "points": ""
+  },
+  {
+    "id": 10267,
+    "name": "Andrei Chekhernov",
+    "team": "QC",
+    "conference": "CAC",
+    "pr": 7,
+    "points": ""
+  },
+  {
+    "id": 10268,
+    "name": "Austin Zan Stan Petrovic",
+    "team": "QC",
+    "conference": "CAC",
+    "pr": 7,
+    "points": ""
+  },
+  {
+    "id": 10269,
+    "name": "Nolan Comicossy",
+    "team": "QC",
+    "conference": "CAC",
+    "pr": 6,
+    "points": 1190
+  },
+  {
+    "id": 10270,
+    "name": "Luke Garratos",
+    "team": "QC",
+    "conference": "CAC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10271,
+    "name": "Jared Locklear",
+    "team": "QC",
+    "conference": "CAC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10272,
+    "name": "Jeffrey Jiger",
+    "team": "QC",
+    "conference": "CAC",
+    "pr": 2,
+    "points": ""
+  },
+  {
+    "id": 10273,
+    "name": "Austin Kleinberg",
+    "team": "QC",
+    "conference": "",
+    "pr": "",
+    "points": ""
+  },
+  {
+    "id": 10274,
+    "name": "Axel Veranik",
+    "team": "RI",
+    "conference": "NEC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10275,
+    "name": "Georgio Haloftis Card",
+    "team": "RI",
+    "conference": "NEC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10276,
+    "name": "Craig Vonnekarat",
+    "team": "RI",
+    "conference": "NEC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10277,
+    "name": "Darrell Harjinis",
+    "team": "RI",
+    "conference": "NEC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10278,
+    "name": "Miles Remandi",
+    "team": "RI",
+    "conference": "NEC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10279,
+    "name": "Giovanni Rejklovak",
+    "team": "RI",
+    "conference": "NEC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10280,
+    "name": "Richard Rocroix",
+    "team": "SC",
+    "conference": "SAC",
+    "pr": 8,
+    "points": 2000
+  },
+  {
+    "id": 10281,
+    "name": "Henry St. Claire",
+    "team": "SC",
+    "conference": "SAC",
+    "pr": 6,
+    "points": ""
+  },
+  {
+    "id": 10282,
+    "name": "Bijan Sebai",
+    "team": "SC",
+    "conference": "SAC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10283,
+    "name": "Jeremiah Carter",
+    "team": "SC",
+    "conference": "SAC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10284,
+    "name": "Gregorio Borten",
+    "team": "SC",
+    "conference": "SAC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10285,
+    "name": "Ottin Kracao",
+    "team": "SC",
+    "conference": "SAC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10286,
+    "name": "Caleb Silva",
+    "team": "SC",
+    "conference": "",
+    "pr": "",
+    "points": ""
+  },
+  {
+    "id": 10287,
+    "name": "Alexandria Fellons",
+    "team": "SCA",
+    "conference": "WCC",
+    "pr": 6,
+    "points": ""
+  },
+  {
+    "id": 10288,
+    "name": "Hunter Duran",
+    "team": "SCA",
+    "conference": "WCC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10289,
+    "name": "Keller Briggs",
+    "team": "SCA",
+    "conference": "WCC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10290,
+    "name": "Anthony Borafone",
+    "team": "SCA",
+    "conference": "WCC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10291,
+    "name": "Shaun Faradayan",
+    "team": "SCA",
+    "conference": "WCC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10292,
+    "name": "Erik Proyer",
+    "team": "SCA",
+    "conference": "WCC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10293,
+    "name": "Adrian Cena",
+    "team": "SCA",
+    "conference": "",
+    "pr": "",
+    "points": ""
+  },
+  {
+    "id": 10294,
+    "name": "Giancarlo Kelsi",
+    "team": "SCA",
+    "conference": "",
+    "pr": "",
+    "points": ""
+  },
+  {
+    "id": 10295,
+    "name": "Bryan Kamak",
+    "team": "SD",
+    "conference": "RMC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10296,
+    "name": "Allan Henke",
+    "team": "SD",
+    "conference": "RMC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10297,
+    "name": "Joey Panterra",
+    "team": "SD",
+    "conference": "RMC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10298,
+    "name": "Adrian Kroker",
+    "team": "SD",
+    "conference": "RMC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10299,
+    "name": "Christopher Wentz",
+    "team": "SD",
+    "conference": "RMC",
+    "pr": 2,
+    "points": ""
+  },
+  {
+    "id": 10300,
+    "name": "Caleb Dalton",
+    "team": "SD",
+    "conference": "RMC",
+    "pr": 2,
+    "points": ""
+  },
+  {
+    "id": 10301,
+    "name": "Warren Baremayo",
+    "team": "TN",
+    "conference": "MWC",
+    "pr": 8,
+    "points": 1700
+  },
+  {
+    "id": 10302,
+    "name": "Jordan Yerbo",
+    "team": "TN",
+    "conference": "MWC",
+    "pr": 6,
+    "points": ""
+  },
+  {
+    "id": 10303,
+    "name": "Zedi Okanarak",
+    "team": "TN",
+    "conference": "MWC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10304,
+    "name": "Kareem Vasalo",
+    "team": "TN",
+    "conference": "MWC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10305,
+    "name": "Francisco Alvernon",
+    "team": "TN",
+    "conference": "MWC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10306,
+    "name": "Wilbur Goyo",
+    "team": "TN",
+    "conference": "MWC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10307,
+    "name": "Jason Daynes",
+    "team": "TX",
+    "conference": "MWC",
+    "pr": 7,
+    "points": 1625
+  },
+  {
+    "id": 10308,
+    "name": "Boston Klaviks",
+    "team": "TX",
+    "conference": "MWC",
+    "pr": 7,
+    "points": 1330
+  },
+  {
+    "id": 10309,
+    "name": "Nolan Harkkens",
+    "team": "TX",
+    "conference": "MWC",
+    "pr": 6,
+    "points": ""
+  },
+  {
+    "id": 10310,
+    "name": "Boris Borsanyi",
+    "team": "TX",
+    "conference": "MWC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10311,
+    "name": "Jenson Yavata",
+    "team": "TX",
+    "conference": "MWC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10312,
+    "name": "Billy Azur",
+    "team": "TX",
+    "conference": "MWC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10313,
+    "name": "Dallard Foye",
+    "team": "TX",
+    "conference": "",
+    "pr": "",
+    "points": ""
+  },
+  {
+    "id": 10314,
+    "name": "Rickardos Johnson",
+    "team": "UT",
+    "conference": "RMC",
+    "pr": 7,
+    "points": 1800
+  },
+  {
+    "id": 10315,
+    "name": "Jarvinn Ball",
+    "team": "UT",
+    "conference": "RMC",
+    "pr": 7,
+    "points": 1310
+  },
+  {
+    "id": 10316,
+    "name": "Marcos Kearing",
+    "team": "UT",
+    "conference": "RMC",
+    "pr": 7,
+    "points": 1185
+  },
+  {
+    "id": 10317,
+    "name": "David Aikanowitz",
+    "team": "UT",
+    "conference": "RMC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10318,
+    "name": "Coen Johnson",
+    "team": "UT",
+    "conference": "RMC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10319,
+    "name": "Paras Viandre",
+    "team": "UT",
+    "conference": "RMC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10320,
+    "name": "David Mancuso",
+    "team": "UT",
+    "conference": "",
+    "pr": "",
+    "points": ""
+  },
+  {
+    "id": 10321,
+    "name": "Faucio Hernandez",
+    "team": "VA",
+    "conference": "SAC",
+    "pr": 8,
+    "points": 1910
+  },
+  {
+    "id": 10322,
+    "name": "Julian Achord",
+    "team": "VA",
+    "conference": "SAC",
+    "pr": 7,
+    "points": 1320
+  },
+  {
+    "id": 10323,
+    "name": "Vincent Geragos",
+    "team": "VA",
+    "conference": "SAC",
+    "pr": 6,
+    "points": ""
+  },
+  {
+    "id": 10324,
+    "name": "Wayne Karlowitz",
+    "team": "VA",
+    "conference": "SAC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10325,
+    "name": "Georges Thiopl",
+    "team": "VA",
+    "conference": "SAC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10326,
+    "name": "Hadrien Felspar",
+    "team": "VA",
+    "conference": "SAC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10327,
+    "name": "Peter Kobelt",
+    "team": "VA",
+    "conference": "",
+    "pr": "",
+    "points": ""
+  },
+  {
+    "id": 10328,
+    "name": "Petros Kieberle",
+    "team": "VA",
+    "conference": "",
+    "pr": "",
+    "points": ""
+  },
+  {
+    "id": 10329,
+    "name": "Albert Bottany",
+    "team": "VT",
+    "conference": "CAC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10330,
+    "name": "Medi Carkos",
+    "team": "VT",
+    "conference": "CAC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10331,
+    "name": "Sergey Laarken",
+    "team": "VT",
+    "conference": "CAC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10332,
+    "name": "Thomas Wierchert",
+    "team": "VT",
+    "conference": "CAC",
+    "pr": 2,
+    "points": ""
+  },
+  {
+    "id": 10333,
+    "name": "Charles LaFlare",
+    "team": "VT",
+    "conference": "CAC",
+    "pr": 2,
+    "points": ""
+  },
+  {
+    "id": 10334,
+    "name": "Ford Guhderhav",
+    "team": "VT",
+    "conference": "CAC",
+    "pr": 2,
+    "points": ""
+  },
+  {
+    "id": 10335,
+    "name": "Estasios Vliega",
+    "team": "WA",
+    "conference": "WCC",
+    "pr": 9,
+    "points": 1920
+  },
+  {
+    "id": 10336,
+    "name": "Leo Makonnen",
+    "team": "WA",
+    "conference": "WCC",
+    "pr": 6,
+    "points": 1152
+  },
+  {
+    "id": 10337,
+    "name": "Emmett Fosborough",
+    "team": "WA",
+    "conference": "WCC",
+    "pr": 6,
+    "points": ""
+  },
+  {
+    "id": 10338,
+    "name": "Baboya Hewco",
+    "team": "WA",
+    "conference": "WCC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10339,
+    "name": "Dane Hasburg",
+    "team": "WA",
+    "conference": "WCC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10340,
+    "name": "Khalid Morris",
+    "team": "WA",
+    "conference": "WCC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10341,
+    "name": "Yvonne Pikhuorov",
+    "team": "WI",
+    "conference": "GLC",
+    "pr": 9,
+    "points": 1600
+  },
+  {
+    "id": 10342,
+    "name": "Daniel Plaxicos",
+    "team": "WI",
+    "conference": "GLC",
+    "pr": 7,
+    "points": 1260
+  },
+  {
+    "id": 10343,
+    "name": "Tyson Magneroux",
+    "team": "WI",
+    "conference": "GLC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10344,
+    "name": "Julius Markanero",
+    "team": "WI",
+    "conference": "GLC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10345,
+    "name": "Diego Qurasi",
+    "team": "WI",
+    "conference": "GLC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10346,
+    "name": "James Siegel",
+    "team": "WI",
+    "conference": "GLC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10347,
+    "name": "Julianik Karen",
+    "team": "WV",
+    "conference": "SAC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10348,
+    "name": "Gunnar Voyland",
+    "team": "WV",
+    "conference": "SAC",
+    "pr": 5,
+    "points": ""
+  },
+  {
+    "id": 10349,
+    "name": "Terrence Leone",
+    "team": "WV",
+    "conference": "SAC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10350,
+    "name": "Nicholas Searson",
+    "team": "WV",
+    "conference": "SAC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10351,
+    "name": "Oskar Hartt",
+    "team": "WV",
+    "conference": "SAC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10352,
+    "name": "Rohan Ackar",
+    "team": "WV",
+    "conference": "SAC",
+    "pr": 2,
+    "points": ""
+  },
+  {
+    "id": 10353,
+    "name": "Johnny Aroe",
+    "team": "WY",
+    "conference": "RMC",
+    "pr": 4,
+    "points": ""
+  },
+  {
+    "id": 10354,
+    "name": "Yaroslavik Faren",
+    "team": "WY",
+    "conference": "RMC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10355,
+    "name": "Duke Forchinet",
+    "team": "WY",
+    "conference": "RMC",
+    "pr": 3,
+    "points": ""
+  },
+  {
+    "id": 10356,
+    "name": "Garret Van Daal",
+    "team": "WY",
+    "conference": "RMC",
+    "pr": 2,
+    "points": ""
+  },
+  {
+    "id": 10357,
+    "name": "Lockheed Moreno",
+    "team": "WY",
+    "conference": "RMC",
+    "pr": 2,
+    "points": ""
+  },
+  {
+    "id": 10358,
+    "name": "Tim Besseranki",
+    "team": "WY",
+    "conference": "RMC",
+    "pr": 2,
+    "points": ""
+  }
+]

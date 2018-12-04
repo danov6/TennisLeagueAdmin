@@ -12,7 +12,8 @@ class App extends Component {
     this.state = {      
       playerData: PlayerData,
       orderBy: "points",
-      order: 'desc'
+      order: 'desc',
+      orderPlaceholder: 0
     };
 
     this.doOrderBy = this.doOrderBy.bind(this);
@@ -21,9 +22,11 @@ class App extends Component {
   doOrderBy(e){
     e.preventDefault(); // prevents an a href link from going to page
     const newOrderBy = e.target.getAttribute('data-value'); // (element).getAttribute('data-value')
-    this.setState({orderBy : newOrderBy}); //setState() schedules an update to a component’s state object. When state changes, the component responds by re-rendering.
-  
-    if(newOrderBy !== 'points' && newOrderBy !== 'pr'){
+
+    // update the state of the orderBy property
+    this.setState({orderBy : newOrderBy});
+
+    if(newOrderBy !== 'pr' && newOrderBy !== 'points'){
       this.setState({order : 'asc'});
     }else{
       this.setState({order : 'desc'});
@@ -67,14 +70,10 @@ class App extends Component {
 class Player extends React.Component {
   render(){
     const { data, orderBy } = this.props;
-    const input = categories; // array from the bottom of this script
-    const output = input.map((item)=>{
-      return <div><small className={ orderBy === item ? "active" : null }>{item}:</small> {data[item] }</div>
-    });
 
     return (    
       <tr key={data.id}>
-        <td>{i++}</td>
+        <td>{0+i}</td>
         <td className={ orderBy === "name" ? "active" : null }>{data.name}</td>
         <td className={ orderBy === "team" ? "active" : null }>{data.team}</td>
         <td className={ orderBy === "conference" ? "active" : null }>{data.conference}</td>
@@ -89,6 +88,5 @@ class Player extends React.Component {
     )
   }
 }
-const categories = ["rank","name","team","conference","pr","points"];
 
 export default App;

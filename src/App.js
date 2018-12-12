@@ -3,8 +3,6 @@ import PlayerData from './data/PlayerData.json';
 
 var _ = require('lodash');
 
-var i = 1;
-
 class App extends Component {
 
   constructor(){
@@ -13,7 +11,7 @@ class App extends Component {
       playerData: PlayerData,
       orderBy: "points",
       order: 'desc',
-      orderPlaceholder: 0
+      rank: 0
     };
 
     this.doOrderBy = this.doOrderBy.bind(this);
@@ -43,8 +41,8 @@ class App extends Component {
       return item[orderBy]
     }, order);
 
-    const players = sorted.map((item)=>{
-      return <Player data={ item } key={ item.id } orderBy={ this.state.orderBy } />
+    const players = sorted.map((item, index)=>{
+      return <Player data={ item } key={ item.id } rank={ index } orderBy={ this.state.orderBy } />
     }); 
 
     return (
@@ -68,12 +66,13 @@ class App extends Component {
 }
 
 class Player extends React.Component {
+
   render(){
-    const { data, orderBy } = this.props;
+    const { data, orderBy, rank } = this.props;
 
     return (    
       <tr key={data.id}>
-        <td>{0+i}</td>
+        <td>{ rank + 1 }</td>
         <td className={ orderBy === "name" ? "active" : null }>{data.name}</td>
         <td className={ orderBy === "team" ? "active" : null }>{data.team}</td>
         <td className={ orderBy === "conference" ? "active" : null }>{data.conference}</td>

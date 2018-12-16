@@ -37,31 +37,70 @@ class App extends Component {
     const order = this.state.order;
     let sorted = this.state.playerData;
     
+    //lodash library used to sort the list 
+    //TODO: Need to 
     sorted = _.orderBy(sorted, (item) => {
       return item[orderBy]
     }, order);
 
+    // 
     const players = sorted.map((item, index)=>{
       return <Player data={ item } key={ item.id } rank={ index } orderBy={ this.state.orderBy } />
     }); 
 
     return (
-      <table className="table table-striped">
-        <thead>
-          <tr>
-            <th><a href="#">#</a></th>
-            <th><a href="#" onClick={ this.doOrderBy } data-value="name">Name</a></th>
-            <th><a href="#" onClick={ this.doOrderBy } data-value="team">Team</a></th>
-            <th><a href="#" onClick={ this.doOrderBy } data-value="conference">Conference</a></th>
-            <th><a href="#" onClick={ this.doOrderBy } data-value="pr">PR</a></th>
-            <th><a href="#" onClick={ this.doOrderBy } data-value="points">Points</a></th>
-          </tr>
-        </thead>
-        <tbody>
-          {players}
-        </tbody>
-      </table>
+      <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <h1 className="page-header">Dashboard</h1>
+        <Highlights />
+        <div>
+          <h2 className="sub-header">Top 10 National</h2>
+          <div className="table-responsive">
+            <table className="table table-striped">
+              <thead>
+                <tr>
+                  <th><a href="#" onClick={ this.doOrderBy } data-value="points">#</a></th>
+                  <th><a href="#" onClick={ this.doOrderBy } data-value="name">Name</a></th>
+                  <th><a href="#" onClick={ this.doOrderBy } data-value="team">Team</a></th>
+                  <th><a href="#" onClick={ this.doOrderBy } data-value="conference">Conference</a></th>
+                  <th><a href="#" onClick={ this.doOrderBy } data-value="pr">PR</a></th>
+                  <th><a href="#" onClick={ this.doOrderBy } data-value="points">Points</a></th>
+                </tr>
+              </thead>
+              <tbody>
+                {players}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     );
+  }
+}
+
+class Highlights extends React.Component {
+  render(){
+
+  const highlightBubbleClasses = 'col-xs-4 col-sm-4 placeholder';
+
+    return (    
+      <div className="row placeholders">
+        <div className={highlightBubbleClasses}>
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="150" height="150" className="img-responsive" alt="Generic placeholder thumbnail" />
+          <h4>Label</h4>
+          <span class="text-muted">Something else</span>
+        </div>
+        <div className={highlightBubbleClasses}>
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="150" height="150" className="img-responsive" alt="Generic placeholder thumbnail" />
+          <h4>Label</h4>
+          <span class="text-muted">Something else</span>
+        </div>
+        <div className={highlightBubbleClasses}>
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="150" height="150" className="img-responsive" alt="Generic placeholder thumbnail" />
+          <h4>Label</h4>
+          <span class="text-muted">Something else</span>
+        </div>
+      </div>  
+    )
   }
 }
 

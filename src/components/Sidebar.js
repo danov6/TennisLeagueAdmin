@@ -10,9 +10,9 @@ export default class Sidebar extends React.Component {
         padding: '0px 20px 0px 20px',
       };
 
-      const conferences = conference_names.map((conf)=>{
+      const conferences = conference_names.map((conf, index)=>{
         return (
-            <li><a href="#" onClick={ filterConference } data-value={conf}>{conf}</a></li>
+            <li key={index}><a href="#" onClick={ filterConference } data-value={conf}>{conf}</a></li>
           )
       }); 
 

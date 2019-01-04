@@ -8,7 +8,7 @@ export default class PlayerModal extends React.Component {
 
   render() {
 
-    const { hideModal, updatePlayerProperty, selectedPlayer, updateAndHideModal } = this.props;
+    const { hideModal, updatePlayerProperty, selectedPlayer } = this.props;
     const emptyHighlights = (
         <Modal
         {...this.props}

@@ -19,10 +19,10 @@ export default class Sidebar extends React.Component {
       return (
       	<div className="col-sm-3 col-md-2 sidebar">
           <ul className="nav nav-sidebar">
-            <li className="active"><a href="#" onClick={showAllPlayers}>Overview <span className="sr-only">(current)</span></a></li>
-            <li><a href="#">Standings</a></li>
-            <li><a href="#">Playoffs</a></li>
-            <li><a href="#">NTL Draft</a></li>
+            <li className="active"><a href="#" onClick={showAllPlayers}>Player Rankings<span className="sr-only">(current)</span></a></li>
+            <li><a href="#">Team Rankings</a></li>
+            <li><a href="#">Free Agency</a></li>
+            <li><a href="#">Playoff Race</a></li>
           </ul>
           <ul className="nav nav-sidebar">
             <li><b style={titleStyle}>Player Rankings</b></li>

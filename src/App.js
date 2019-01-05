@@ -2,18 +2,20 @@ import React, { Component } from 'react';
 import PlayerData from './data/PlayerData.json';
 import Sidebar from './components/Sidebar';
 import Navbar from './components/Navbar';
+import Player from './components/Player';
 import PlayerModal from './components/PlayerModal';
+import Highlights from './components/Highlights';
 
-import TeamMap from './components/TeamMap';
-import TeamMapWCC from './components/TeamMapWCC';
-import TeamMapRMC from './components/TeamMapRMC';
-import TeamMapMWC from './components/TeamMapMWC';
-import TeamMapSAC from './components/TeamMapSAC';
-import TeamMapGLC from './components/TeamMapGLC';
-import TeamMapNEC from './components/TeamMapNEC';
-import TeamMapCAC from './components/TeamMapCAC';
+import TeamMap from './maps/TeamMap';
+import TeamMapWCC from './maps/TeamMapWCC';
+import TeamMapRMC from './maps/TeamMapRMC';
+import TeamMapMWC from './maps/TeamMapMWC';
+import TeamMapSAC from './maps/TeamMapSAC';
+import TeamMapGLC from './maps/TeamMapGLC';
+import TeamMapNEC from './maps/TeamMapNEC';
+import TeamMapCAC from './maps/TeamMapCAC';
 
-//NOTES: Whenever a state chnages, that render method gets called again
+//NOTES: Whenever a state changes, that render method gets called again
 
 var _ = require('lodash');
 
@@ -100,7 +102,8 @@ class App extends Component {
 
   constructor(){
     super();
-    this.state = {      
+    this.state = {
+      currentPage: "Player Rankings"      
       playerData: PlayerData,
       orderBy: "points",
       order: "desc",
@@ -334,60 +337,6 @@ class App extends Component {
   }
 }
 
-class Highlights extends React.Component {
-  render(){
-
-  const { sorted, selectedTeamMap, topPlayers } = this.props;
-  const placeholder = ["1","2","3"];
-  const highlightBubbleClasses = 'col-xs-4 col-sm-4 placeholder';
-  const emptyHighlights = <div className="row placeholders"></div>;
-
-  const highlightedPlayers = placeholder.map((prop,index)=>{
-      return (
-        <div className={highlightBubbleClasses} key={index}>
-          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="150" height="150" className="img-responsive" alt="Generic placeholder thumbnail" />
-          <h4>{topPlayers[index].name}</h4>
-          <span className="text-muted">{getFullTeamName(topPlayers[index].team)}</span>
-        </div>
-      );
-  });
-
-  if(selectedTeamMap !== ""){
-    return emptyHighlights;
-  }else{
-
-    return (    
-      <div className="row placeholders">
-        {highlightedPlayers}
-      </div>  
-    );
-  }
-
-  }
-}
-
-class Player extends React.Component {
-
-  render(){
-    const { data, orderBy, rank, showModal } = this.props;
-
-    return (    
-      <tr key={data.id}>
-        <td>{ rank + 1 }</td>
-        <td className={ orderBy === "name" ? "active" : null }>{data.name}</td>
-        <td className={ orderBy === "team" ? "active" : null }>{data.team}</td>
-        <td className={ orderBy === "conference" ? "active" : null }>{data.conference}</td>
-        <td className={ orderBy === "pr" ? "active" : null }>{data.pr}</td>
-        <td className={ orderBy === "points" ? "active" : null }>{data.points}</td>
-        <td>
-          <button type="button" className="btn btn-default btn-sm" onClick={ showModal } data-value={data.id}>
-            <span className="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit
-          </button>
-        </td>
-      </tr>    
-    )
-  }
-}
 const player_properties = ["Name","Team","Conference","PR","Points"];
 
 

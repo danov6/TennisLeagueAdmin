@@ -103,7 +103,7 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      currentPage: "Player Rankings"      
+      currentPage: "Player Rankings",      
       playerData: PlayerData,
       orderBy: "points",
       order: "desc",
@@ -113,6 +113,7 @@ class App extends Component {
       showPlayerModal: false,
       selectedTeamMap: "",
       selectedConferenceMap: {},
+      playerDataMongo: []
     };
 
     //filter functions (keeps in scope)
@@ -130,6 +131,19 @@ class App extends Component {
     this.removeMarker = this.removeMarker.bind(this);
 
   }
+
+  componentDidMount() {
+    console.log("[LIFECYCLE]");
+    fetch('http://localhost:3001/players')
+    .then(
+      res => res.json()
+    ).then((response) =>
+      this.setState({
+        playerDataMongo: response.products
+      })
+    );
+  }
+
   removeMarker(){
     if(document.querySelectorAll('.jvectormap-tip').length > 0){
       document.querySelectorAll('.jvectormap-tip')[0].remove();
@@ -182,8 +196,10 @@ class App extends Component {
   showModal(e){
 
     const selectedPlayerId = e.target.getAttribute('data-value');
-    const selectedPlayer = _.find(this.state.playerData, {id: parseInt(selectedPlayerId)});
-        
+    const selectedPlayer = _.find(this.state.playerDataMongo, {_id: selectedPlayerId});
+    //    const selectedPlayer = _.find(this.state.playerData, {id: parseInt(selectedPlayerId)});
+
+
     console.log(selectedPlayerId);
     console.log(selectedPlayer);
 
@@ -214,7 +230,7 @@ class App extends Component {
     }
 
     console.log("[CHANGE]");
-    console.log(this.state.playerData[0])
+    console.log(this.state.playerDataMongo[0])
 
     // stores the updates in a new object 'selectedPlayerUpdates'
     this.setState({
@@ -255,7 +271,7 @@ class App extends Component {
     const selectedTeamMap = this.state.selectedTeamMap;
     const selectedConferenceMap = this.state.selectedConferenceMap;
 
-    let sorted = this.state.playerData;
+    let sorted = this.state.playerDataMongo;
 
     // lodash library used to sort the list 
     sorted = _.orderBy(sorted, (item) => {
@@ -287,7 +303,7 @@ class App extends Component {
 
     // list of players
     const players = sorted.map((item, index)=>{
-      return <Player data={ item } key={ item.id } rank={ index } orderBy={ this.state.orderBy } showModal={ this.showModal } />
+      return <Player data={ item } key={ item._id } rank={ index } orderBy={ this.state.orderBy } showModal={ this.showModal } />
     }); 
 
     const header_properties = player_properties.map((prop,index)=>{

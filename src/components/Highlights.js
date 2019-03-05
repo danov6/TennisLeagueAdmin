@@ -13,10 +13,14 @@ function getFullTeamName (code){
 export default class Highlights extends React.Component {
   render(){
 
-  const { sorted, selectedTeamMap, topPlayers } = this.props;
-  const placeholder = ["1","2","3"];
+  const { selectedTeamMap, topPlayers } = this.props;
+  let placeholder = ["1","2","3"];
   const highlightBubbleClasses = 'col-xs-4 col-sm-4 placeholder';
   const emptyHighlights = <div className="row placeholders"></div>;
+
+  if(topPlayers.length === 0){
+    placeholder = [];
+  }
 
   const highlightedPlayers = placeholder.map((prop,index)=>{
       return (

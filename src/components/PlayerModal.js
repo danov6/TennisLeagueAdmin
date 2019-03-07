@@ -40,7 +40,7 @@ export default class PlayerModal extends React.Component {
             <Modal.Title id="contained-modal-title-lg">Edit {selectedPlayer.name}</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <input type="hidden" name="id" value={selectedPlayer.id} onChange={ updatePlayerProperty } />
+            <input type="hidden" name="id" value={selectedPlayer._id} />
             <h4>Team</h4>
             <input type="text" name="team" value={selectedPlayer.team} onChange={ updatePlayerProperty } />
             <h4>Conference</h4>

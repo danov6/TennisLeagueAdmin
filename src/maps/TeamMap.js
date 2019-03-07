@@ -35,7 +35,7 @@ export default class TeamMap extends React.Component {
         }
       }
     }
-    let map = <VectorMap map={ "us_aea" }
+    let map_us = <VectorMap map={ "us_aea" }
                backgroundColor='#fff'
                ref='map'
                zoomOnScroll={false}
@@ -51,13 +51,14 @@ export default class TeamMap extends React.Component {
                onRegionClick={ clickedTeam }
                selectedRegions= { selectedRegions }
                selectedMarkers= { [] }
-    />;
+                />;
+
 
     removeMarker();
 
     return (
   	  <div style={{width: '100%', height: 500}}>
-        { map }
+        { map_us }
       </div>
     );
   }

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import PlayerData from './data/PlayerData.json';
 import Sidebar from './components/Sidebar';
 import Navbar from './components/Navbar';
 import Player from './components/Player';
 import PlayerModal from './components/PlayerModal';
 import Highlights from './components/Highlights';
+
+import AddPlayer from './components/AddPlayer';
 
 import TeamMap from './maps/TeamMap';
 import TeamMapWCC from './maps/TeamMapWCC';
@@ -103,8 +104,7 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      currentPage: "Player Rankings",      
-      playerData: PlayerData,
+      currentPage: "Home",      
       orderBy: "points",
       order: "desc",
       rank: 0,
@@ -130,6 +130,7 @@ class App extends Component {
     this.clickedTeam = this.clickedTeam.bind(this);
     this.removeMarker = this.removeMarker.bind(this);
 
+    this.changePage = this.changePage.bind(this);
   }
 
   componentDidMount() {
@@ -214,6 +215,14 @@ class App extends Component {
   hideModal(){
     this.setState({
       showPlayerModal : false
+    });
+  }
+
+  changePage(e){
+    e.preventDefault(); // prevents an a href link from going to page
+    const newPage = e.target.getAttribute('data-value');
+    this.setState({
+      currentPage: newPage
     });
   }
 
@@ -310,39 +319,52 @@ class App extends Component {
       return <th key={index}><a href="#" onClick={ this.doOrderBy } data-value={prop.toLowerCase()}>{prop}</a></th>
     });
 
+    let currentPage = {};
+    if(this.state.currentPage === "Home"){
+        currentPage = (
+          <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <div style={{backgroundColor: '#fff', padding: '5%', borderRadius: '5px'}}>
+              <h1 className="page-header"><center>{selectedTeamMap === "" ? "Dashboard": selectedTeamMap + " Menu"}</center></h1>
+              <Map clickedTeam={ this.clickedTeam }
+                 conferenceFilter={ conferenceFilter }
+                 selectedTeamMap={ selectedTeamMap }
+                 teamAbbreviations={ teamAbbreviations }
+                 removeMarker={ this.removeMarker } />
+              <Highlights sorted={ sorted } selectedTeamMap={ selectedTeamMap } topPlayers={ topPlayers } />
+              <div>
+                <h2 className="sub-header">{conferenceFilter + " "} Player Rankings</h2>
+                <div className="table-responsive">
+                  <table className="table table-striped">
+                    <thead>
+                      <tr>
+                        <th><a href="#" onClick={ this.doOrderBy } data-value="points">#</a></th>
+                        {header_properties}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {players}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>  
+          </div>
+        );
+    } else if(this.state.currentPage === "AddPlayer"){
+        currentPage = (
+          <AddPlayer />
+        );
+    }
+
     return (
-    <div>
-      <Navbar />
+    <div style={{backgroundColor: '#dadada'}}>
+      <Navbar changePage={ this.changePage } />
       <div className="container-fluid">
         <div className="row">
           <Sidebar filterConference={ this.filterConference} showAllPlayers={this.showAllPlayers} />
-          <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h1 className="page-header"><center>{selectedTeamMap === "" ? "Dashboard": selectedTeamMap + " Menu"}</center></h1>
-            <Map clickedTeam={ this.clickedTeam }
-               conferenceFilter={ conferenceFilter }
-               selectedTeamMap={ selectedTeamMap }
-               teamAbbreviations={ teamAbbreviations }
-               removeMarker={ this.removeMarker } />
-            <Highlights sorted={ sorted } selectedTeamMap={ selectedTeamMap } topPlayers={ topPlayers } />
-            <div>
-              <h2 className="sub-header">{conferenceFilter + " "} Player Rankings</h2>
-              <div className="table-responsive">
-                <table className="table table-striped">
-                  <thead>
-                    <tr>
-                      <th><a href="#" onClick={ this.doOrderBy } data-value="points">#</a></th>
-                      {header_properties}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {players}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
+          { currentPage }
         </div>
-      </div>
+      </div>      
       < PlayerModal selectedPlayer={ this.state.selectedPlayer }
        hideModal={ this.hideModal }
         show={ this.state.showPlayerModal }

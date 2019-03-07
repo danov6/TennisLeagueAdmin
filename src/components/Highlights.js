@@ -18,7 +18,7 @@ export default class Highlights extends React.Component {
   const highlightBubbleClasses = 'col-xs-4 col-sm-4 placeholder';
   const emptyHighlights = <div className="row placeholders"></div>;
 
-  if(topPlayers.length === 0){
+  if(topPlayers.length < 3){
     placeholder = [];
   }
 

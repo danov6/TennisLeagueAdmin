@@ -12,7 +12,7 @@ router.get('/', (req, res, next) => {
     .then(docs => {
       const response = {
       	count: docs.length,
-      	products: docs.map(doc => {
+      	players: docs.map(doc => {
       		return {
       			_id: doc._id,
       			name: doc.name,
@@ -39,7 +39,7 @@ router.get('/', (req, res, next) => {
 
 //Add new record
 router.post('/',(req, res, next) => {
-	console.log(req)
+	//console.log(req.body)
 	const player = new Player({
 		_id: new mongoose.Types.ObjectId(),
 		name: req.body.name,

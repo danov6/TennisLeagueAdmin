@@ -1,23 +1,36 @@
 import React from 'react';
-import { Modal } from 'react-bootstrap';
-import { Button } from 'react-bootstrap';
-import { Alert } from 'react-bootstrap';
+
+import TeamCodes from './../data/teamabbreviations';
+import ConferenceCodes from './../data/conferenceabbreviations';
+
+import { Alert } from 'react-bootstrap'
 
 export default class AddPlayer extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
-    this.state = {
+    this.state = { 
       newPlayer: {
         name: '',
-        team: '',
-        conference: '',
         pr: '',
-        points: ''
-      }
+        points: '',
+        team: '',
+        conference: ''
+      },
+      changedProperties: {
+        name: false,
+        pr: false,
+        points: false,
+        team: false,
+        conference: true //optional field
+      },
+      isEligible: false,
+      errorMessage: ''
     }
-    this.handleSubmit = this.handleSubmit.bind(this);
+
     this.handleInput = this.handleInput.bind(this);
+    this.checkIfEligible = this.checkIfEligible.bind(this);
+    this.handleTeamChange = this.handleTeamChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleClearForm = this.handleClearForm.bind(this);
   }
@@ -27,29 +40,149 @@ export default class AddPlayer extends React.Component {
     this.setState({ 
       newPlayer: {
         name: '',
-        team: '',
-        conference: '',
         pr: '',
-        points: ''
+        points: '',
+        team: '',
+        conference: ''
       },
-    })
+      changedProperties: {
+        name: false,
+        pr: false,
+        points: false,
+        team: false,
+        conference: false
+      },
+      isEligible: false,
+      errorMessage: ""
+    });
   }
+  handleTeamChange(e) {
+    let team = e.target.value;
+    if(team !== ""){
+      let conference = TeamCodes[team].Conf;
+      this.setState({
+        team: team,
+        conference: conference
+      });
+    }
+ }
   handleInput(e) {
      let value = e.target.value;
      let name = e.target.name;
-     this.setState( prevState => {
+    
+      this.setState( prevState => {
         return { 
-           newPlayer : {
-                    ...prevState.newPlayer, [name]: value
-                   }
+          newPlayer : {
+            ...prevState.newPlayer, [name]: value,
+          }
         }
-     }, () => console.log(this.state.newPlayer)
-     )
- }
+      }, () => this.checkIfEligible(this.state.newPlayer));
+
+      if(name === "team" && value !== ""){
+        let conference = TeamCodes[value].Conf;
+        this.setState( prevState => {
+          return { 
+            newPlayer : {
+              ...prevState.newPlayer, ["conference"]: conference,
+            }
+          }
+        });
+        //, () => console.log(this.state.newPlayer));
+
+        this.setState( prevState => {
+          return { 
+            changedProperties : {
+              ...prevState.changedProperties, ["conference"]: true,
+            }
+          }
+        });
+      }
+
+      this.setState( prevState => {
+        return { 
+          changedProperties : {
+            ...prevState.changedProperties, [name]: true,
+          }
+        }
+      });
+  }
+  checkIfEligible(player){
+    console.log('CHECK');
+    console.log(player);
+    if(player.name === ""){
+      this.setState({
+        isEligible: false,
+        errorMessage: "Must enter name"
+      });
+      return false;
+    }
+    if(player.name.length <= 3){
+      this.setState({
+        isEligible: false,
+        errorMessage: "Name not long enough"
+      });
+      return false;
+    }
+    if(player.name.indexOf(' ') === -1){
+      this.setState({
+        isEligible: false,
+        errorMessage: "Please enter first and last name"
+      });
+      return false;
+    }
+    if(player.team === ""){
+      this.setState({
+        isEligible: false,
+        errorMessage: "Please select team"
+      });
+      return false;
+    }
+    if(player.conference === ""){
+      this.setState({
+        isEligible: false,
+        errorMessage: "Conference not selected"
+      });
+      return false;
+    }
+    if(player.pr === ""){
+      this.setState({
+        isEligible: false,
+        errorMessage: "Enter a player rating"
+      });
+      return false;
+    }
+    if(isNaN(player.pr)){
+      this.setState({
+        isEligible: false,
+        errorMessage: "Player rating must be a number"
+      });
+      return false;
+    }
+    // if(player.points === ""){
+    //   this.setState({
+    //     isEligible: false,
+    //     errorMessage: "Enter a player's points"
+    //   });
+    //   return false;
+    // }
+    if(isNaN(player.points)){
+      this.setState({
+        isEligible: false,
+        errorMessage: "Player points must be a number"
+      });
+      return false;
+    }
+    console.log('PLAYER ELIGIBLE')
+    this.setState({
+      isEligible: true,
+      errorMessage: ""
+    });
+  }
   handleFormSubmit(e) {
     e.preventDefault();
     let userData = this.state.newPlayer;
-
+    console.log('NEW PLAYER:');
+    console.log(userData);
     fetch('http://localhost:3001/players',{
         method: "POST",
         body: JSON.stringify(userData),
@@ -62,37 +195,21 @@ export default class AddPlayer extends React.Component {
           console.log(data);
           window.location = "http://localhost:3000/?success=" + data.createdPlayer._id
         })
-    })
-  }  
-  handleSubmit(event) {
-    event.preventDefault();
-    // const data = new FormData(event.target);
-    console.log(event.target);
-    // fetch('http://localhost:3001/players', {
-    //   method: 'POST',
-    //   body: data
-    // });
+    });
   }
-
   render() {  
 
     const input_styles = {
-      fontSize: 18,
+      fontSize: 20,
       padding: 5,
       borderRadius: 3,
-    };
-    const submit_button_styles = {
-      fontSize: 18,
-      padding: 5,
-      width: 120,
-      backgroundColor: '#1c5d96',
-      borderRadius: '5px',
-      borderColor: '#1c5d96',
-      color: '#fff',
-      margin: 10
+      width: '80%',
+      borderColor: '#1c5c96',
+      borderWidth: 1,
+      outline: 'none'
     };
     const cancel_button_styles = {
-      fontSize: 18,
+      fontSize: 20,
       padding: 5,
       width: 120,
       borderRadius: '5px',
@@ -102,6 +219,22 @@ export default class AddPlayer extends React.Component {
       color: '#1c5d96',
       margin: 10
     };
+    const select_dropdown_styles = {
+      fontSize: 20,
+      padding: 5,
+      borderRadius: 3,
+      backgroundColor: '#fff',
+      width: '80%',
+      borderColor: '#1c5c96',
+      borderWidth: 1,
+      textAlign: 'center'
+    };
+
+    let teamData = Object.keys(TeamCodes).map((team,index) => {
+      return <option value={ team } key={ index }>{ TeamCodes[team].Name }</option>
+    });
+
+    const isEligible = this.state.isEligible ? <SubmitButton /> : <div></div>;
 
     return (
       <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
@@ -109,40 +242,30 @@ export default class AddPlayer extends React.Component {
               <h1 className="page-header"><center>Add Player</center></h1>
               <div className="container-fluid">
               <div className="row">
-                <div style={{backgroundColor: '#fff', padding: '5%', borderRadius: '5px', textAlign: 'center', display: 'inline'}}>
-                  <form onSubmit={ this.handleFormSubmit }>
+                <div style={{backgroundColor: '#fff', padding: '5%', borderRadius: '5px', textAlign: 'center', display: 'block'}}>
+                  <form onSubmit={ this.handleFormSubmit } style={{width: '100%'}}>
+                    <AlertMessage changedProperties={ this.state.changedProperties } errorMessage={ this.state.errorMessage }/>
                     <h4>Name</h4>
-                    <input type="text" name="name" style={input_styles} onChange={this.handleInput}/>
+                    <input type="text" name="name" style={input_styles} onChange={this.handleInput} value={this.state.newPlayer.name}/>
                     <h4>Team</h4>
-
                     <select
                       name="team"
-                      value={props.value}
-                      onChange={props.handleChange}
+                      value={this.state.newPlayer.team}
+                      onChange={this.handleInput}
+                      style={ select_dropdown_styles }
                       >
                       <option value="" disabled>Select Team</option>
-                      {props.options.map(option => {
-                        return (
-                          <option
-                            key={option}
-                            value={option}
-                            label={option}>{option}
-                          </option>
-                        );
-                      })}
+                      { teamData }
                     </select>
-
-
-                    <input type="text" name="team" style={input_styles} onChange={this.handleInput} />
                     <h4>Conference</h4>
-                    <input type="text" name="conference" style={input_styles} onChange={this.handleInput} />
+                    <h4>{this.state.newPlayer.conference !== "" ? ConferenceCodes[this.state.newPlayer.conference].Name : "N/A"}</h4>
                     <h4>Player Rating</h4>
-                    <input type="text" name="pr" style={input_styles} onChange={this.handleInput}/>
+                    <input type="text" name="pr" style={input_styles} onChange={this.handleInput} value={this.state.newPlayer.pr}/>
                     <h4>Points</h4>
-                    <input type="text" name="points" style={input_styles} onChange={this.handleInput}/>
+                    <input type="text" name="points" style={input_styles} onChange={this.handleInput} value={this.state.newPlayer.points}/>
                     <br/>
-                    <button type="button" name="clear" style={cancel_button_styles} onClick={ this.handleClearForm }>Clear</button> 
-                    <button type="submit" name="submit" style={submit_button_styles}>Add Player</button> 
+                    <button type="button" name="clear" className="btn btn-outline-secondary" onClick={ this.handleClearForm }>Clear</button> 
+                    { isEligible }
                   </form>
                 </div>
               </div>
@@ -152,4 +275,48 @@ export default class AddPlayer extends React.Component {
     );
   }
 }
-const teams = [{}]
+function SubmitButton (){
+  const submit_button_styles = {
+    fontSize: 18,
+    width: 120,
+    margin: 10
+  };
+  return (
+    <button type="submit" name="submit" className="btn btn-primary btn-lg" style={ submit_button_styles }>Add Player</button>
+  );
+}
+function AlertMessage (props){
+  // only display error or success message if all fields have seen an update
+  var changedProperties = props.changedProperties;
+  var properties = Object.keys(changedProperties);
+  var errorMessage = props.errorMessage;
+  var messageEligible = true;
+  for(var i = 0; i < properties.length; i++){
+    //console.log(changedProperties[properties[i]])
+    if(!changedProperties[properties[i]]){
+      messageEligible = false;
+      break;
+    }
+  }
+
+  if(messageEligible){
+    if(errorMessage !== ""){
+      return (
+        <div className="alert alert-danger" role="alert">
+          {errorMessage}
+        </div>
+      );
+    }else{
+      return (
+        <div className="alert alert-success" role="alert">
+          Player Eligible!
+        </div>
+      );
+    }
+  }else{
+    return (
+      <div></div>
+    );
+  }
+
+}

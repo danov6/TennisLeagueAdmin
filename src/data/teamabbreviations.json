@@ -1,10 +1,226 @@
 {
 	"AB": {
-		"Team": "Alberta",
+		"Name": "Alberta",
 		"Conf": "CAC"
 	},
+	"BC": {
+		"Name": "British Columbia",
+		"Conf": "CAC"
+	},
+	"AK": {
+		"Name": "Alaska",
+		"Conf": "CAC"
+	},
+	"ON": {
+		"Name": "Ontario",
+		"Conf": "CAC"
+	},
+	"QC": {
+		"Name": "Quebec",
+		"Conf": "CAC"
+	},
+	"ME": {
+		"Name": "Maine",
+		"Conf": "CAC"
+	},
+	"VT": {
+		"Name": "Vermont",
+		"Conf": "CAC"
+	},
+	"NH": {
+		"Name": "New Hampshire",
+		"Conf": "CAC"
+	},
+	"AZ": {
+		"Name": "Arizona",
+		"Conf": "WCC"
+	},
+	"HI": {
+		"Name": "Hawaii",
+		"Conf": "WCC"
+	},
+	"ID": {
+		"Name": "Idaho",
+		"Conf": "WCC"
+	},
+	"OR": {
+		"Name": "Oregon",
+		"Conf": "WCC"
+	},
+	"WA": {
+		"Name": "Washington",
+		"Conf": "WCC"
+	},
+	"NCA": {
+		"Name": "Northern Calfornia",
+		"Conf": "WCC"
+	},
+	"SCA": {
+		"Name": "Southern California",
+		"Conf": "WCC"
+	},
+	"NV": {
+		"Name": "Nevada",
+		"Conf": "WCC"
+	},
+	"MT": {
+		"Name": "Montana",
+		"Conf": "RMC"
+	},
+	"WY": {
+		"Name": "Wyoming",
+		"Conf": "RMC"
+	},
+	"NE": {
+		"Name": "Nebraska",
+		"Conf": "RMC"
+	},
+	"ND": {
+		"Name": "North Dakota",
+		"Conf": "RMC"
+	},
+	"SD": {
+		"Name": "South Dakota",
+		"Conf": "RMC"
+	},
+	"UT": {
+		"Name": "Utah",
+		"Conf": "RMC"
+	},
+	"CO": {
+		"Name": "Colorado",
+		"Conf": "RMC"
+	},
+	"NM": {
+		"Name": "New Mexico",
+		"Conf": "RMC"
+	},
+	"LA": {
+		"Name": "Louisiana",
+		"Conf": "MWC"
+	},
+	"TX": {
+		"Name": "Texas",
+		"Conf": "MWC"
+	},
+	"OK": {
+		"Name": "Oklahoma",
+		"Conf": "MWC"
+	},
+	"AR": {
+		"Name": "Arkansas",
+		"Conf": "MWC"
+	},
+	"KS": {
+		"Name": "Kansas",
+		"Conf": "MWC"
+	},
+	"MS": {
+		"Name": "Mississippi",
+		"Conf": "MWC"
+	},
+	"TN": {
+		"Name": "Tennessee",
+		"Conf": "MWC"
+	},
+	"MO": {
+		"Name": "Missouri",
+		"Conf": "MWC"
+	},
 	"AL": {
-		"Team": "Alabama",
+		"Name": "Alabama",
 		"Conf": "SAC"
 	},
+	"GA": {
+		"Name": "Georgia",
+		"Conf": "SAC"
+	},
+	"FL": {
+		"Name": "Florida",
+		"Conf": "SAC"
+	},
+	"PR": {
+		"Name": "Puerto Rico",
+		"Conf": "SAC"
+	},
+	"SC": {
+		"Name": "South Carolina",
+		"Conf": "SAC"
+	},
+	"NC": {
+		"Name": "North Carolina",
+		"Conf": "SAC"
+	},
+	"VA": {
+		"Name": "Virginia",
+		"Conf": "SAC"
+	},
+	"WV": {
+		"Name": "West Virginia",
+		"Conf": "SAC"
+	},
+	"MD": {
+		"Name": "Maryland",
+		"Conf": "NEC"
+	},
+	"NJ": {
+		"Name": "New Jersey",
+		"Conf": "NEC"
+	},
+	"NY": {
+		"Name": "New York",
+		"Conf": "NEC"
+	},
+	"MA": {
+		"Name": "Massachusetts",
+		"Conf": "NEC"
+	},
+	"PA": {
+		"Name": "Pennsylvania",
+		"Conf": "NEC"
+	},
+	"RI": {
+		"Name": "Rhode Island",
+		"Conf": "NEC"
+	},
+	"DE": {
+		"Name": "Delaware",
+		"Conf": "NEC"
+	},
+	"CT": {
+		"Name": "Connecticut",
+		"Conf": "NEC"
+	},
+	"MI": {
+		"Name": "Michigan",
+		"Conf": "GLC"
+	},
+	"WI": {
+		"Name": "Wisconsin",
+		"Conf": "GLC"
+	},
+	"MN": {
+		"Name": "Minnesota",
+		"Conf": "GLC"
+	},
+	"OH": {
+		"Name": "Ohio",
+		"Conf": "GLC"
+	},
+	"IN": {
+		"Name": "Indiana",
+		"Conf": "GLC"
+	},
+	"IL": {
+		"Name": "Illinois",
+		"Conf": "GLC"
+	},
+	"IA": {
+		"Name": "Iowa",
+		"Conf": "GLC"
+	},
+	"KY": {
+		"Name": "Kentucky",
+		"Conf": "GLC"
+	}
 }

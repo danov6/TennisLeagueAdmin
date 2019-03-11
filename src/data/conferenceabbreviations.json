@@ -1,0 +1,23 @@
+{
+    "WCC": {
+        "Name": "West Coast Conference"
+    },
+    "RMC": {
+        "Name": "Rocky Mountain Conference"
+    },
+    "MWC": {
+        "Name": "Midwest Conference"
+    },
+    "SAC": {
+        "Name": "Southern Atlantic Conference"
+    },
+    "GLC": {
+        "Name": "Great Lake Conference"
+    },
+    "CAC": {
+        "Name": "Canadian American Conference"
+    },
+    "NEC": {
+        "Name": "New England Conference"
+    }
+}

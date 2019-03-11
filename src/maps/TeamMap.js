@@ -27,7 +27,7 @@ export default class TeamMap extends React.Component {
       }
     };
 
-    if(selectedTeamMap != ""){
+    if(selectedTeamMap !== ""){
       for(var team in teamAbbreviations){
         if(teamAbbreviations[team] === selectedTeamMap){
           selectedRegions.push("US-" + team);

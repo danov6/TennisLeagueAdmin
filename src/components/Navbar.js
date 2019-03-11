@@ -18,7 +18,7 @@ export default class Sidebar extends React.Component {
               </div>
               <div id="navbar" className="navbar-collapse collapse">
                 <ul className="nav navbar-nav navbar-right">
-                  <li><a onClick={ changePage } data-value="AddPlayer">Add Player</a></li>
+                  <li><a  href="#" onClick={ changePage } data-value="AddPlayer">Add Player</a></li>
                   <li><a href="#">Profile</a></li>
                 </ul>
                 <form className="navbar-form navbar-right">

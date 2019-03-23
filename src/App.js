@@ -17,6 +17,7 @@ import TeamMapNEC from './maps/TeamMapNEC';
 import TeamMapCAC from './maps/TeamMapCAC';
 
 //NOTES: Whenever a state changes, that render method gets called again
+// Arrow functions automatically bind functions to 'this'
 
 var _ = require('lodash');
 
@@ -101,9 +102,7 @@ function Map(props) {
 
 class App extends Component {
 
-  constructor(){
-    super();
-    this.state = {
+  state = {
       currentPage: "Home",      
       orderBy: "points",
       order: "desc",
@@ -116,26 +115,6 @@ class App extends Component {
       playerDataMongo: [],
       messageUpdate: ""
     };
-
-    //filter functions (keeps in scope)
-    this.doOrderBy = this.doOrderBy.bind(this);
-    this.filterConference = this.filterConference.bind(this);
-    this.showAllPlayers = this.showAllPlayers.bind(this);
-
-    //modal functions
-    this.showModal = this.showModal.bind(this);
-    this.hideModal = this.hideModal.bind(this);
-    this.updatePlayerProperty = this.updatePlayerProperty.bind(this);
-
-    //map functions
-    this.clickedTeam = this.clickedTeam.bind(this);
-    this.removeMarker = this.removeMarker.bind(this);
-
-    this.changePage = this.changePage.bind(this);
-
-    //player actions
-    this.checkForPlayerAdd = this.checkForPlayerAdd.bind(this);
-  }
 
   componentDidMount() {
     console.log("[LIFECYCLE]");
@@ -161,7 +140,6 @@ class App extends Component {
 
     //selected team from map vars
     const selectedTeamMap = this.state.selectedTeamMap;
-    const selectedConferenceMap = this.state.selectedConferenceMap;
 
     let sorted = this.state.playerDataMongo;
 
@@ -214,7 +192,9 @@ class App extends Component {
                  selectedTeamMap={ selectedTeamMap }
                  teamAbbreviations={ teamAbbreviations }
                  removeMarker={ this.removeMarker } />
-              <Highlights sorted={ sorted } selectedTeamMap={ selectedTeamMap } topPlayers={ topPlayers } />
+              <Highlights sorted={ sorted }
+                selectedTeamMap={ selectedTeamMap }
+                topPlayers={ topPlayers } />
               <div>
                 <h2 className="sub-header">{conferenceFilter + " "} Player Rankings</h2>
                 <div className="table-responsive">
@@ -284,7 +264,7 @@ class App extends Component {
   }
 
   // sets the order of the list based on clicked header
-  doOrderBy(e){
+  doOrderBy = (e) => {
     e.preventDefault(); // prevents an a href link from going to page
     const newOrderBy = e.target.getAttribute('data-value'); // (element).getAttribute('data-value')
 
@@ -299,7 +279,7 @@ class App extends Component {
   }
 
   // filter players in the list by selected conference in the Sidebar
-  filterConference(e){
+  filterConference = (e) => {
     e.preventDefault();
     const newFilter = e.target.getAttribute('data-value');
 
@@ -311,7 +291,7 @@ class App extends Component {
   }
 
   // Resets the states back to default and shows all active players
-  showAllPlayers(e){
+  showAllPlayers = (e) => {
     e.preventDefault();
 
     this.setState({
@@ -325,7 +305,7 @@ class App extends Component {
   }
 
   // displays the modal on "Edit" Button click
-  showModal(e){
+  showModal = (e) => {
 
     const selectedPlayerId = e.target.getAttribute('data-value');
     const selectedPlayer = _.find(this.state.playerDataMongo, {_id: selectedPlayerId});
@@ -343,13 +323,13 @@ class App extends Component {
   }
 
   // closes the modal on exit
-  hideModal(){
+  hideModal = () => {
     this.setState({
       showPlayerModal : false
     });
   }
 
-  changePage(e){
+  changePage = (e) => {
     e.preventDefault(); // prevents an a href link from going to page
     const newPage = e.target.getAttribute('data-value');
     this.setState({
@@ -358,8 +338,8 @@ class App extends Component {
   }
 
   // calls this function onchange when doing player edits
-  updatePlayerProperty(event) {
-    const target = event.target;
+  updatePlayerProperty = (e) => {
+    const target = e.target;
     const value = target.value;
     const name = target.name;
 
@@ -379,7 +359,7 @@ class App extends Component {
   }
 
   // calls this function on team selected from the map
-  clickedTeam(e,code){
+  clickedTeam = (e,code) => {
 
     console.log('[TEAM SELECTED]: ' + code);
     var team = "";

@@ -3,8 +3,6 @@ import React from 'react';
 import TeamCodes from './../data/teamabbreviations';
 import ConferenceCodes from './../data/conferenceabbreviations';
 
-import { Alert } from 'react-bootstrap'
-
 export default class AddPlayer extends React.Component {
   constructor() {
     super();
@@ -34,7 +32,9 @@ export default class AddPlayer extends React.Component {
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleClearForm = this.handleClearForm.bind(this);
   }
-
+  componentDidMount() {
+    console.log("[LIFECYCLE]");
+  }
   handleClearForm(e) {
     e.preventDefault();
     this.setState({ 
@@ -210,13 +210,6 @@ export default class AddPlayer extends React.Component {
     };
     const cancel_button_styles = {
       fontSize: 20,
-      padding: 5,
-      width: 120,
-      borderRadius: '5px',
-      backgroundColor: '#fff',
-      borderWidth: 1,
-      borderColor: '#1c5d96',
-      color: '#1c5d96',
       margin: 10
     };
     const select_dropdown_styles = {
@@ -264,7 +257,7 @@ export default class AddPlayer extends React.Component {
                     <h4>Points</h4>
                     <input type="text" name="points" style={input_styles} onChange={this.handleInput} value={this.state.newPlayer.points}/>
                     <br/>
-                    <button type="button" name="clear" className="btn btn-outline-secondary" onClick={ this.handleClearForm }>Clear</button> 
+                    <button type="button" name="clear" className="btn btn-link" onClick={ this.handleClearForm } style={cancel_button_styles}>Clear</button> 
                     { isEligible }
                   </form>
                 </div>

@@ -23,14 +23,290 @@ var _ = require('lodash');
 
 var teamAbbreviations = require('datasets-us-states-abbr-names');
 
-function getFullTeamName (code){
-    if(code === "SCA" || code === "NCA"){
-      return "California";
-    }else{
-      return teamAbbreviations[code];
-    }
-}
+class App extends Component {
 
+  state = {
+      currentPage: "Home",      
+      orderBy: "points",
+      order: "desc",
+      rank: 0,
+      conferenceFilter: "",
+      selectedPlayer: {},
+      showPlayerModal: false,
+      selectedTeamMap: "",
+      selectedConferenceMap: {},
+      playerDataMongo: [],
+      messageUpdate: ""
+    };
+
+  componentDidMount() {
+    console.log("[LIFECYCLE]");
+
+    this.checkForDataUpdate();
+
+    //Grabs the list of players
+    fetch('http://localhost:3001/players')
+    .then(
+      res => res.json()
+    ).then((response) =>
+      this.setState({
+        playerDataMongo: response.players
+      })
+    );
+  }
+  render() {
+    console.log('[APP]');
+
+    // filter vars
+    const orderBy = this.state.orderBy;
+    const order = this.state.order;
+    const conferenceFilter = this.state.conferenceFilter;
+
+    //selected team from map vars
+    const selectedTeamMap = this.state.selectedTeamMap;
+
+    let sorted = this.state.playerDataMongo;
+
+    // lodash library used to sort the list 
+    sorted = _.orderBy(sorted, (item) => {
+      return item[orderBy]
+    }, order);
+
+    // does the filters based on selection
+    sorted = _.map(sorted, function(eligible) {
+
+      // first remove the extra players
+      if(selectedTeamMap !== "" && (selectedTeamMap === getFullTeamName(eligible.team))){
+        return eligible;
+      }else if(eligible.conference !== "" && selectedTeamMap === ""){
+        // filter by conference if one is selected
+        if((conferenceFilter === "") || (conferenceFilter !== "" && conferenceFilter === eligible.conference)){
+
+          //TODO: Add Team Filter
+          return eligible;
+        }
+      }
+    });
+
+    // remove all undefined and display filtered list
+    sorted = _.without(sorted, undefined);
+
+    const topPlayers = _.orderBy(sorted, function(player) {
+      return player["points"];
+    }, "desc");
+
+    // list of players
+    const players = sorted.map((item, index)=>{
+      return <Player data={ item } key={ item._id } rank={ index } orderBy={ this.state.orderBy } showModal={ this.showModal } />
+    }); 
+
+    const header_properties = player_properties.map((prop,index)=>{
+      return <th key={index}><a href="#" onClick={ this.doOrderBy } data-value={prop.toLowerCase()}>{prop}</a></th>
+    });
+
+    let currentPage = {};
+
+
+    if(this.state.currentPage === "Home"){
+        let modal = <div></div>;
+        if(this.state.showPlayerModal){
+          modal = (
+            <PlayerModal selectedPlayer={ this.state.selectedPlayer }
+                hideModal={ this.hideModal }
+                show={ this.state.showPlayerModal }
+                updatePlayer={ this.updatePlayer }
+              />
+          );
+        }
+        currentPage = (
+          <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <div style={{backgroundColor: '#fff', padding: '5%', borderRadius: '5px'}}>
+              <AlertMessage message={ this.state.messageUpdate } />
+              <h1 className="page-header"><center>{selectedTeamMap === "" ? "Dashboard": selectedTeamMap + " Menu"}</center></h1>
+              <Map clickedTeam={ this.clickedTeam }
+                 conferenceFilter={ conferenceFilter }
+                 selectedTeamMap={ selectedTeamMap }
+                 teamAbbreviations={ teamAbbreviations }
+                 removeMarker={ this.removeMarker } />
+              <Highlights sorted={ sorted }
+                selectedTeamMap={ selectedTeamMap }
+                topPlayers={ topPlayers } />
+              <div>
+                <h2 className="sub-header">{conferenceFilter + " "} Player Rankings</h2>
+                <div className="table-responsive">
+                  <table className="table table-striped">
+                    <thead>
+                      <tr>
+                        <th><a href="#" onClick={ this.doOrderBy } data-value="points">#</a></th>
+                        {header_properties}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {players}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              { modal }
+            </div>  
+          </div>
+        );
+    } else if(this.state.currentPage === "AddPlayer"){
+        currentPage = (
+          <AddPlayer changePage={ this.changePage }  />
+        );
+    }
+
+    return (
+    <div style={{backgroundColor: '#dadada'}}>
+      <Navbar changePage={ this.changePage } />
+      <div className="container-fluid">
+        <div className="row">
+          <Sidebar filterConference={ this.filterConference}
+           showAllPlayers={this.showAllPlayers}
+            />
+          { currentPage }
+        </div>
+      </div>      
+    </div>
+    );
+  }
+  checkForDataUpdate = () => {
+    var url_string = window.location.href
+    var url = new URL(url_string);
+    var player_id = "";
+    var message = "";
+    if(url_string.indexOf('success=') != -1){
+      player_id = url.searchParams.get("success");
+      message = " has been added!";
+    }else if(url_string.indexOf('update=') != -1){
+      player_id = url.searchParams.get("update");
+      message = " has been updated!";
+    }
+    if(player_id !== "" && message !== "" && player_id != null){
+      fetch('http://localhost:3001/players/' + player_id)
+      .then(
+        res => res.json()
+      ).then((response) => {
+          if(typeof response.name !== "undefined"){
+            this.setAlertMessage(response.name + message);
+          }
+        }
+      );
+    }
+  }
+  removeMarker = () => {
+    if(document.querySelectorAll('.jvectormap-tip').length > 0){
+      document.querySelectorAll('.jvectormap-tip')[0].remove();
+      console.log('Element Removed')
+    }
+  }
+
+  // sets the order of the list based on clicked header
+  doOrderBy = (e) => {
+    e.preventDefault(); // prevents an a href link from going to page
+    const newOrderBy = e.target.getAttribute('data-value'); // (element).getAttribute('data-value')
+
+    // update the state of the orderBy property
+    this.setState({orderBy : newOrderBy});
+
+    if(newOrderBy !== 'pr' && newOrderBy !== 'points'){
+      this.setState({order : 'asc'});
+    }else{
+      this.setState({order : 'desc'});
+    }
+  }
+
+  // filter players in the list by selected conference in the Sidebar
+  filterConference = (e) => {
+    e.preventDefault();
+    const newFilter = e.target.getAttribute('data-value');
+
+    this.setState({
+      conferenceFilter : newFilter,
+      selectedTeamMap : "",
+      selectedConferenceMap : ""
+    });
+  }
+
+  // Resets the states back to default and shows all active players
+  showAllPlayers = (e) => {
+    e.preventDefault();
+
+    this.setState({
+      conferenceFilter : "",
+      teamFilter : "",
+      selectedTeamMap : "",
+      selectedConferenceMap : "",
+      orderBy: "pr",
+      order: "desc"
+    });
+  }
+
+  // displays the modal on "Edit" Button click
+  showModal = (e) => {
+
+    const selectedPlayerId = e.target.getAttribute('data-value');
+    const selectedPlayer = _.find(this.state.playerDataMongo, {_id: selectedPlayerId});
+    //    const selectedPlayer = _.find(this.state.playerData, {id: parseInt(selectedPlayerId)});
+
+
+    console.log(selectedPlayerId);
+    console.log(selectedPlayer);
+
+    // displays modal with player attributes
+    this.setState({
+      selectedPlayer: selectedPlayer,
+      showPlayerModal: true
+    });
+  }
+
+  // closes the modal on exit
+  hideModal = () => {
+    this.setState({
+      showPlayerModal : false
+    });
+  }
+
+  changePage = (e) => {
+    e.preventDefault(); // prevents an a href link from going to page
+    console.log(e.target)
+    const newPage = e.target.getAttribute('data-value');
+    this.setState({
+      currentPage: newPage
+    });
+  }
+
+  // calls this function onchange when doing player edits
+  updatePlayer = (newPlayer) => {
+    console.log(newPlayer);
+    console.log(this.state.selectedPlayer);
+    this.setState({
+      selectedPlayer: newPlayer
+    });
+  }
+
+  // calls this function on team selected from the map
+  clickedTeam = (e,code) => {
+
+    console.log('[TEAM SELECTED]: ' + code);
+    var team = "";
+    var california = ["SCA","NCA"];
+    code = code.replace("US-","");
+
+    //TODO: Need popup or something to help distinguish if user wants SCA or NCA
+    if(code !== "CA"){
+      team = getFullTeamName(code);
+    }else{
+      team = "California";
+    }
+
+    this.setState({
+      selectedTeamMap : team,
+      conferenceFilter : ""
+    });
+  }
+}
 function Map(props) {
   const conference = props.conferenceFilter;
   if (conference === "WCC") {
@@ -99,286 +375,6 @@ function Map(props) {
       );         
   }
 }
-
-class App extends Component {
-
-  state = {
-      currentPage: "Home",      
-      orderBy: "points",
-      order: "desc",
-      rank: 0,
-      conferenceFilter: "",
-      selectedPlayer: {},
-      showPlayerModal: false,
-      selectedTeamMap: "",
-      selectedConferenceMap: {},
-      playerDataMongo: [],
-      messageUpdate: ""
-    };
-
-  componentDidMount() {
-    console.log("[LIFECYCLE]");
-
-    this.checkForPlayerAdd();
-
-    fetch('http://localhost:3001/players')
-    .then(
-      res => res.json()
-    ).then((response) =>
-      this.setState({
-        playerDataMongo: response.players
-      })
-    );
-  }
-  render() {
-    console.log('[APP]');
-
-    // filter vars
-    const orderBy = this.state.orderBy;
-    const order = this.state.order;
-    const conferenceFilter = this.state.conferenceFilter;
-
-    //selected team from map vars
-    const selectedTeamMap = this.state.selectedTeamMap;
-
-    let sorted = this.state.playerDataMongo;
-
-    // lodash library used to sort the list 
-    sorted = _.orderBy(sorted, (item) => {
-      return item[orderBy]
-    }, order);
-
-    // does the filters based on selection
-    sorted = _.map(sorted, function(eligible) {
-
-      // first remove the extra players
-      if(selectedTeamMap !== "" && (selectedTeamMap === getFullTeamName(eligible.team))){
-        return eligible;
-      }else if(eligible.conference !== "" && selectedTeamMap === ""){
-        // filter by conference if one is selected
-        if((conferenceFilter === "") || (conferenceFilter !== "" && conferenceFilter === eligible.conference)){
-
-          //TODO: Add Team Filter
-          return eligible;
-        }
-      }
-    });
-
-    // remove all undefined and display filtered list
-    sorted = _.without(sorted, undefined);
-
-    const topPlayers = _.orderBy(sorted, function(player) {
-      return player["points"];
-    }, "desc");
-
-    // list of players
-    const players = sorted.map((item, index)=>{
-      return <Player data={ item } key={ item._id } rank={ index } orderBy={ this.state.orderBy } showModal={ this.showModal } />
-    }); 
-
-    const header_properties = player_properties.map((prop,index)=>{
-      return <th key={index}><a href="#" onClick={ this.doOrderBy } data-value={prop.toLowerCase()}>{prop}</a></th>
-    });
-
-    let currentPage = {};
-    if(this.state.currentPage === "Home"){
-        currentPage = (
-          <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <div style={{backgroundColor: '#fff', padding: '5%', borderRadius: '5px'}}>
-              <AlertMessage message={ this.state.messageUpdate } />
-              <h1 className="page-header"><center>{selectedTeamMap === "" ? "Dashboard": selectedTeamMap + " Menu"}</center></h1>
-              <Map clickedTeam={ this.clickedTeam }
-                 conferenceFilter={ conferenceFilter }
-                 selectedTeamMap={ selectedTeamMap }
-                 teamAbbreviations={ teamAbbreviations }
-                 removeMarker={ this.removeMarker } />
-              <Highlights sorted={ sorted }
-                selectedTeamMap={ selectedTeamMap }
-                topPlayers={ topPlayers } />
-              <div>
-                <h2 className="sub-header">{conferenceFilter + " "} Player Rankings</h2>
-                <div className="table-responsive">
-                  <table className="table table-striped">
-                    <thead>
-                      <tr>
-                        <th><a href="#" onClick={ this.doOrderBy } data-value="points">#</a></th>
-                        {header_properties}
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {players}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>  
-          </div>
-        );
-    } else if(this.state.currentPage === "AddPlayer"){
-        currentPage = (
-          <AddPlayer />
-        );
-    }
-
-    return (
-    <div style={{backgroundColor: '#dadada'}}>
-      <Navbar changePage={ this.changePage } />
-      <div className="container-fluid">
-        <div className="row">
-          <Sidebar filterConference={ this.filterConference} showAllPlayers={this.showAllPlayers} />
-          { currentPage }
-        </div>
-      </div>      
-      < PlayerModal selectedPlayer={ this.state.selectedPlayer }
-       hideModal={ this.hideModal }
-        show={ this.state.showPlayerModal }
-         updatePlayerProperty={ this.updatePlayerProperty }
-          />
-    </div>
-    );
-  }
-  checkForPlayerAdd(){
-    var url_string = window.location.href
-    var url = new URL(url_string);
-    var player_id = url.searchParams.get("success");
-    if(player_id !== "" && player_id != null){
-      fetch('http://localhost:3001/players/' + player_id)
-      .then(
-        res => res.json()
-      ).then((response) =>
-        {
-          if(typeof response.name !== "undefined"){
-            this.setState({
-              messageUpdate: response.name + " has been added to the list!"
-            });
-          }
-        }
-      );
-    }
-  }
-  removeMarker(){
-    if(document.querySelectorAll('.jvectormap-tip').length > 0){
-      document.querySelectorAll('.jvectormap-tip')[0].remove();
-      console.log('Element Removed')
-    }
-  }
-
-  // sets the order of the list based on clicked header
-  doOrderBy = (e) => {
-    e.preventDefault(); // prevents an a href link from going to page
-    const newOrderBy = e.target.getAttribute('data-value'); // (element).getAttribute('data-value')
-
-    // update the state of the orderBy property
-    this.setState({orderBy : newOrderBy});
-
-    if(newOrderBy !== 'pr' && newOrderBy !== 'points'){
-      this.setState({order : 'asc'});
-    }else{
-      this.setState({order : 'desc'});
-    }
-  }
-
-  // filter players in the list by selected conference in the Sidebar
-  filterConference = (e) => {
-    e.preventDefault();
-    const newFilter = e.target.getAttribute('data-value');
-
-    this.setState({
-      conferenceFilter : newFilter,
-      selectedTeamMap : "",
-      selectedConferenceMap : ""
-    });
-  }
-
-  // Resets the states back to default and shows all active players
-  showAllPlayers = (e) => {
-    e.preventDefault();
-
-    this.setState({
-      conferenceFilter : "",
-      teamFilter : "",
-      selectedTeamMap : "",
-      selectedConferenceMap : "",
-      orderBy: "points",
-      order: "desc"
-    });
-  }
-
-  // displays the modal on "Edit" Button click
-  showModal = (e) => {
-
-    const selectedPlayerId = e.target.getAttribute('data-value');
-    const selectedPlayer = _.find(this.state.playerDataMongo, {_id: selectedPlayerId});
-    //    const selectedPlayer = _.find(this.state.playerData, {id: parseInt(selectedPlayerId)});
-
-
-    console.log(selectedPlayerId);
-    console.log(selectedPlayer);
-
-    // displays modal with player attributes
-    this.setState({
-      selectedPlayer: selectedPlayer,
-      showPlayerModal: true
-    });
-  }
-
-  // closes the modal on exit
-  hideModal = () => {
-    this.setState({
-      showPlayerModal : false
-    });
-  }
-
-  changePage = (e) => {
-    e.preventDefault(); // prevents an a href link from going to page
-    const newPage = e.target.getAttribute('data-value');
-    this.setState({
-      currentPage: newPage
-    });
-  }
-
-  // calls this function onchange when doing player edits
-  updatePlayerProperty = (e) => {
-    const target = e.target;
-    const value = target.value;
-    const name = target.name;
-
-    const selectedPlayer = this.state.selectedPlayer;
-
-    if(selectedPlayer){
-      selectedPlayer[name] = value;
-    }
-
-    console.log("[CHANGE]");
-    console.log(this.state.playerDataMongo[0])
-
-    // stores the updates in a new object 'selectedPlayerUpdates'
-    this.setState({
-      selectedPlayer: selectedPlayer
-    });
-  }
-
-  // calls this function on team selected from the map
-  clickedTeam = (e,code) => {
-
-    console.log('[TEAM SELECTED]: ' + code);
-    var team = "";
-    var california = ["SCA","NCA"];
-    code = code.replace("US-","");
-
-    //TODO: Need popup or something to help distinguish if user wants SCA or NCA
-    if(code !== "CA"){
-      team = getFullTeamName(code);
-    }else{
-      team = "California";
-    }
-
-    this.setState({
-      selectedTeamMap : team,
-      conferenceFilter : ""
-    });
-  }
-}
 function AlertMessage (props){
     if(props.message === ""){
       return (
@@ -394,6 +390,13 @@ function AlertMessage (props){
         </div>
       );
     }
+}
+function getFullTeamName (code){
+  if(code === "SCA" || code === "NCA"){
+    return "California";
+  }else{
+    return teamAbbreviations[code];
+  }
 }
 const player_properties = ["Name","Team","Conference","PR","Points"];
 

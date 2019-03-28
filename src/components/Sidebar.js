@@ -1,4 +1,5 @@
 import React from 'react';
+import ConferenceCodes from './../data/conferenceabbreviations';
 
 export default class Sidebar extends React.Component {
 
@@ -10,9 +11,9 @@ export default class Sidebar extends React.Component {
         padding: '0px 20px 0px 20px',
       };
 
-      const conferences = conference_names.map((conf, index)=>{
+      const conferences = Object.keys(ConferenceCodes).map((conf, index)=>{
         return (
-            <li key={index}><a href="#" onClick={ filterConference } data-value={conf}>{conf}</a></li>
+            <li key={index}><a href="#" onClick={ filterConference } data-value={conf}>{ConferenceCodes[conf].Name.replace(' Conference', '')}</a></li>
           )
       }); 
 
@@ -37,4 +38,3 @@ export default class Sidebar extends React.Component {
       );
     }
 }
-const conference_names = ["WCC","RMC","MWC","SAC","GLC","NEC","CAC"];

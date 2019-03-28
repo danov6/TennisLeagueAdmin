@@ -46,11 +46,11 @@ app.use((req, res, next) => {
   next();
 });
 
-//Routes to handle API requests
 // Routes which should handle requests
 app.use("/players", playerRoutes);
 
 app.use((req, res, next) => {
+  console.log('ERRor TEST')
   const error = new Error("Not found");
   error.status = 404;
   next(error);
@@ -68,55 +68,6 @@ app.use((error, req, res, next) => {
 
 // launch our backend into a port
 app.listen(API_PORT, () => console.log(`LISTENING ON PORT ${API_PORT}`));
-
-
-// const express = require('express');
-// const app = express();
-// var cors = require('cors')
-// const port = 5000;  
-// var mysql      = require('mysql'); 
-
-// var connection = mysql.createConnection({
-// 	host     : 'localhost',
-// 	user     : 'root',
-// 	password : 'Giordano1!',
-// 	database : 'tennisplayers'
-// });
-
-// app.use(cors());
-
-// app.get('/playerslistdb', (req, res, next) => {
-// 	connection.connect();
-// 	connection.query('SELECT * FROM tennisplayers.players', function(err, rows, fields) {
-// 		if (!err) {
-// 			res.header("Access-Control-Allow-Origin", "*");
-// 			res.header("Access-Control-Allow-Headers", "X-Requested-With");
-// 			console.log(rows)
-//         	res.send(JSON.stringify({"status": 200, "error": null, "response": rows}));
-// 		} else {
-// 			console.log('Error while performing Query.');
-// 		}
-// 	});
-// 	connection.end();
-// });
-// app.post("/newuser", function(req, res) {
-//     // get data from forms and add to the table called user..
-//     var key = req.body.key;
-
-//     var name = req.body.name;
-//     var team = req.body.team;
-//     var conference = req.body.conference;
-//     var pr = req.body.pr;
-//     var points = req.body.points;
-
-//     //INSERT INTO `tennisplayers`.`players` (`key`, `name`, `team`, `conference`, `pr`) VALUES ('', 'Martin Gerabu', 'AB', 'CAC', '7');
-//     connection.query("INSERT INTO tennisplayers.players (`key`, `name`, `team`, `conference`, `pr`) VALUES", (key, name , team, conference, pr, points), function (err, result) {
-//     if (err) throw err;
-//     console.log("1 record inserted");
-//   });
-//     res.redirect("/");
-
-// app.listen(port, () => console.log(`Server started on port ${port}`));
 
 
 

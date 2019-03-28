@@ -8,6 +8,7 @@ import ConferenceCodes from './../data/conferenceabbreviations';
 
 export default class PlayerModal extends React.Component {
   state = {
+    index: 0,
     player: {
       _id: "",
       name: "",
@@ -26,10 +27,21 @@ export default class PlayerModal extends React.Component {
     }
   };
   componentDidMount(){
+    console.log('[MODAL MOUNTED]');
     this.setState({
       player: this.props.selectedPlayer,
       updatedPlayer: this.props.selectedPlayer
     });
+  }
+  componentWillUnmount(){
+    if(this.state.player !== this.state.updatedPlayer){
+      fetch('http://localhost:3001/players')
+      .then(
+          res => res.json()
+      ).then((response) =>
+          this.props.setPlayers(response.players)
+      );
+     }
   }
   handleInput = (e) => {
     let value = e.target.value;
@@ -72,10 +84,11 @@ export default class PlayerModal extends React.Component {
         },
       }).then(response => {
         response.json().then(data => {
-          window.location =  "http://localhost:3000/?update=" + data.id;
+          this.props.setAlertMessage(data.message);
         })
       });
     }
+    this.props.hideModal();
   }  
   render() {
     const { hideModal, selectedPlayer } = this.props;
@@ -97,7 +110,9 @@ export default class PlayerModal extends React.Component {
       width: '80%',
       borderColor: '#1c5c96',
       borderWidth: 1,
-      textAlign: 'center'
+      textAlign: 'center',
+      marginLeft: '2%',
+      height: 40
     };
     const emptyHighlights = (
         <Modal
@@ -146,7 +161,7 @@ export default class PlayerModal extends React.Component {
               { teamData }
             </select>
             <h4>Conference</h4>
-            <h4>{this.state.player.conference !== "" ? ConferenceCodes[this.state.updatedPlayer.conference].Name : "N/A"}</h4>
+            <h4 style={{marginLeft: '2%'}}>{this.state.player.conference !== "" ? ConferenceCodes[this.state.updatedPlayer.conference].Name : "N/A"}</h4>
             <h4>Player Rating</h4>
             <input type="text" name="pr" style={input_styles} onChange={this.handleInput} value={this.state.updatedPlayer.pr}/>
             <h4>Points</h4>
@@ -157,10 +172,10 @@ export default class PlayerModal extends React.Component {
               <tbody>
                 <tr>
                   <td>
-                    <Button onClick={ hideModal } variant="link">Close</Button>
+                    <button onClick={ hideModal } className="btn btn-link btn-lg" style={{width: 180}}>Close</button>
                   </td>
                   <td>
-                    <Button onClick={ this.handleUpdatePlayer } variant="primary">Update</Button>
+                    <button onClick={ this.handleUpdatePlayer } className="btn btn-primary btn-lg" style={{width: 180}}>Update</button>
                   </td>
                 </tr>
               </tbody>

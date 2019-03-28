@@ -53,7 +53,7 @@ router.post('/',(req, res, next) => {
 	.then(result => {
 		console.log(result);
 		res.status(201).json({
-	        message: "Created player successfully",
+	        message: result.name + " added successfully!",
 	        createdPlayer: {
 	        	_id: result._id,
       			name: result.name,
@@ -100,14 +100,21 @@ router.get("/:playerId", (req, res, next) => {
 router.patch("/:playerId", (req, res, next) => {
   const id = req.params.playerId;
   const updateOps = {};
-  for (const ops of req.body) {
-    updateOps[ops.propName] = ops.value;
+  for (const ops of Object.keys(req.body)) {
+    updateOps[ops] = req.body[ops];
   }
   Player.update({ _id: id }, { $set: updateOps })
     .exec()
     .then(result => {
       console.log(result);
-      res.status(200).json(result);
+      res.status(200).json({
+        message: "Player Updated Successfully",
+        id: id,
+        request: {
+          type: "GET",
+          url: "http://localhost:3000/players/" + id
+        }
+      });
     })
     .catch(err => {
       console.log(err);

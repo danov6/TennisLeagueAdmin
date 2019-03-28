@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import Sidebar from './components/Sidebar';
 import Navbar from './components/Navbar';
-import Player from './components/Player';
+import RankingTable from './components/RankingTable';
 import PlayerModal from './components/PlayerModal';
-import Highlights from './components/Highlights';
 
-import AddPlayer from './components/AddPlayer';
+import AddPlayer from './pages/AddPlayer';
 
 import TeamMap from './maps/TeamMap';
 import TeamMapWCC from './maps/TeamMapWCC';
@@ -24,7 +23,6 @@ var _ = require('lodash');
 var teamAbbreviations = require('datasets-us-states-abbr-names');
 
 class App extends Component {
-
   state = {
       currentPage: "Home",      
       orderBy: "points",
@@ -35,77 +33,16 @@ class App extends Component {
       showPlayerModal: false,
       selectedTeamMap: "",
       selectedConferenceMap: {},
-      playerDataMongo: [],
+      playerData: [],
       messageUpdate: ""
-    };
-
-  componentDidMount() {
-    console.log("[LIFECYCLE]");
-
-    this.checkForDataUpdate();
-
-    //Grabs the list of players
-    fetch('http://localhost:3001/players')
-    .then(
-      res => res.json()
-    ).then((response) =>
-      this.setState({
-        playerDataMongo: response.players
-      })
-    );
-  }
+  };
   render() {
-    console.log('[APP]');
-
-    // filter vars
-    const orderBy = this.state.orderBy;
-    const order = this.state.order;
+    // // filter vars
     const conferenceFilter = this.state.conferenceFilter;
 
     //selected team from map vars
     const selectedTeamMap = this.state.selectedTeamMap;
-
-    let sorted = this.state.playerDataMongo;
-
-    // lodash library used to sort the list 
-    sorted = _.orderBy(sorted, (item) => {
-      return item[orderBy]
-    }, order);
-
-    // does the filters based on selection
-    sorted = _.map(sorted, function(eligible) {
-
-      // first remove the extra players
-      if(selectedTeamMap !== "" && (selectedTeamMap === getFullTeamName(eligible.team))){
-        return eligible;
-      }else if(eligible.conference !== "" && selectedTeamMap === ""){
-        // filter by conference if one is selected
-        if((conferenceFilter === "") || (conferenceFilter !== "" && conferenceFilter === eligible.conference)){
-
-          //TODO: Add Team Filter
-          return eligible;
-        }
-      }
-    });
-
-    // remove all undefined and display filtered list
-    sorted = _.without(sorted, undefined);
-
-    const topPlayers = _.orderBy(sorted, function(player) {
-      return player["points"];
-    }, "desc");
-
-    // list of players
-    const players = sorted.map((item, index)=>{
-      return <Player data={ item } key={ item._id } rank={ index } orderBy={ this.state.orderBy } showModal={ this.showModal } />
-    }); 
-
-    const header_properties = player_properties.map((prop,index)=>{
-      return <th key={index}><a href="#" onClick={ this.doOrderBy } data-value={prop.toLowerCase()}>{prop}</a></th>
-    });
-
     let currentPage = {};
-
 
     if(this.state.currentPage === "Home"){
         let modal = <div></div>;
@@ -115,9 +52,13 @@ class App extends Component {
                 hideModal={ this.hideModal }
                 show={ this.state.showPlayerModal }
                 updatePlayer={ this.updatePlayer }
+                setAlertMessage={ this.setAlertMessage }
+                setPlayers={ this.setPlayers }
               />
           );
         }
+        //Components: AlertMessage, Map, Highlights,
+        //states: 
         currentPage = (
           <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <div style={{backgroundColor: '#fff', padding: '5%', borderRadius: '5px'}}>
@@ -128,38 +69,29 @@ class App extends Component {
                  selectedTeamMap={ selectedTeamMap }
                  teamAbbreviations={ teamAbbreviations }
                  removeMarker={ this.removeMarker } />
-              <Highlights sorted={ sorted }
-                selectedTeamMap={ selectedTeamMap }
-                topPlayers={ topPlayers } />
-              <div>
-                <h2 className="sub-header">{conferenceFilter + " "} Player Rankings</h2>
-                <div className="table-responsive">
-                  <table className="table table-striped">
-                    <thead>
-                      <tr>
-                        <th><a href="#" onClick={ this.doOrderBy } data-value="points">#</a></th>
-                        {header_properties}
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {players}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
+              <RankingTable
+                doOrderBy={ this.doOrderBy }
+                orderBy={ this.state.orderBy }
+                setPlayers={ this.setPlayers }
+                showModal={ this.showModal }
+                order={ this.state.order }
+                selectedTeamMap={ this.state.selectedTeamMap }
+                conferenceFilter={ this.state.conferenceFilter }
+                playerData={ this.state.playerData }
+              />
               { modal }
             </div>  
           </div>
         );
     } else if(this.state.currentPage === "AddPlayer"){
         currentPage = (
-          <AddPlayer changePage={ this.changePage }  />
+          <AddPlayer changePage={ this.changePage } setAlertMessage={ this.setAlertMessage }  />
         );
     }
 
     return (
     <div style={{backgroundColor: '#dadada'}}>
-      <Navbar changePage={ this.changePage } />
+      <Navbar changePage={ this.changePage } showAllPlayers={this.showAllPlayers} />
       <div className="container-fluid">
         <div className="row">
           <Sidebar filterConference={ this.filterConference}
@@ -171,34 +103,9 @@ class App extends Component {
     </div>
     );
   }
-  checkForDataUpdate = () => {
-    var url_string = window.location.href
-    var url = new URL(url_string);
-    var player_id = "";
-    var message = "";
-    if(url_string.indexOf('success=') != -1){
-      player_id = url.searchParams.get("success");
-      message = " has been added!";
-    }else if(url_string.indexOf('update=') != -1){
-      player_id = url.searchParams.get("update");
-      message = " has been updated!";
-    }
-    if(player_id !== "" && message !== "" && player_id != null){
-      fetch('http://localhost:3001/players/' + player_id)
-      .then(
-        res => res.json()
-      ).then((response) => {
-          if(typeof response.name !== "undefined"){
-            this.setAlertMessage(response.name + message);
-          }
-        }
-      );
-    }
-  }
   removeMarker = () => {
     if(document.querySelectorAll('.jvectormap-tip').length > 0){
       document.querySelectorAll('.jvectormap-tip')[0].remove();
-      console.log('Element Removed')
     }
   }
 
@@ -206,7 +113,7 @@ class App extends Component {
   doOrderBy = (e) => {
     e.preventDefault(); // prevents an a href link from going to page
     const newOrderBy = e.target.getAttribute('data-value'); // (element).getAttribute('data-value')
-
+    console.log(newOrderBy)
     // update the state of the orderBy property
     this.setState({orderBy : newOrderBy});
 
@@ -239,7 +146,8 @@ class App extends Component {
       selectedTeamMap : "",
       selectedConferenceMap : "",
       orderBy: "pr",
-      order: "desc"
+      order: "desc",
+      currentPage: "Home"
     });
   }
 
@@ -247,8 +155,7 @@ class App extends Component {
   showModal = (e) => {
 
     const selectedPlayerId = e.target.getAttribute('data-value');
-    const selectedPlayer = _.find(this.state.playerDataMongo, {_id: selectedPlayerId});
-    //    const selectedPlayer = _.find(this.state.playerData, {id: parseInt(selectedPlayerId)});
+    const selectedPlayer = _.find(this.state.playerData, {_id: selectedPlayerId});
 
 
     console.log(selectedPlayerId);
@@ -256,9 +163,9 @@ class App extends Component {
 
     // displays modal with player attributes
     this.setState({
-      selectedPlayer: selectedPlayer,
-      showPlayerModal: true
-    });
+      selectedPlayer: selectedPlayer
+    },
+    () => this.setState({showPlayerModal: true}))
   }
 
   // closes the modal on exit
@@ -269,9 +176,13 @@ class App extends Component {
   }
 
   changePage = (e) => {
-    e.preventDefault(); // prevents an a href link from going to page
-    console.log(e.target)
-    const newPage = e.target.getAttribute('data-value');
+    let newPage = '';
+    if(typeof e.target === 'undefined'){
+      newPage = e;
+    }else{
+      e.preventDefault(); // prevents an a href link from going to page
+      newPage = e.target.getAttribute('data-value');
+    }
     this.setState({
       currentPage: newPage
     });
@@ -279,8 +190,6 @@ class App extends Component {
 
   // calls this function onchange when doing player edits
   updatePlayer = (newPlayer) => {
-    console.log(newPlayer);
-    console.log(this.state.selectedPlayer);
     this.setState({
       selectedPlayer: newPlayer
     });
@@ -289,7 +198,6 @@ class App extends Component {
   // calls this function on team selected from the map
   clickedTeam = (e,code) => {
 
-    console.log('[TEAM SELECTED]: ' + code);
     var team = "";
     var california = ["SCA","NCA"];
     code = code.replace("US-","");
@@ -304,6 +212,16 @@ class App extends Component {
     this.setState({
       selectedTeamMap : team,
       conferenceFilter : ""
+    });
+  }
+  setAlertMessage = (message) => {
+    this.setState({
+      messageUpdate: message
+    });
+  }
+  setPlayers = (players) => {
+    this.setState({
+      playerData: players
     });
   }
 }
@@ -398,7 +316,5 @@ function getFullTeamName (code){
     return teamAbbreviations[code];
   }
 }
-const player_properties = ["Name","Team","Conference","PR","Points"];
-
 
 export default App;

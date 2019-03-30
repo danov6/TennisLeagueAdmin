@@ -1,19 +1,12 @@
 import React, { Component } from 'react';
 import Sidebar from './components/Sidebar';
 import Navbar from './components/Navbar';
-import RankingTable from './components/RankingTable';
-import PlayerModal from './components/PlayerModal';
+import RankingTable from './components/tables/RankingTable';
 
 import AddPlayer from './pages/AddPlayer';
+import PlayerProfile from './pages/PlayerProfile';
 
-import TeamMap from './maps/TeamMap';
-import TeamMapWCC from './maps/TeamMapWCC';
-import TeamMapRMC from './maps/TeamMapRMC';
-import TeamMapMWC from './maps/TeamMapMWC';
-import TeamMapSAC from './maps/TeamMapSAC';
-import TeamMapGLC from './maps/TeamMapGLC';
-import TeamMapNEC from './maps/TeamMapNEC';
-import TeamMapCAC from './maps/TeamMapCAC';
+import MapUS from './components/MapUS';
 
 //NOTES: Whenever a state changes, that render method gets called again
 // Arrow functions automatically bind functions to 'this'
@@ -34,7 +27,8 @@ class App extends Component {
       selectedTeamMap: "",
       selectedConferenceMap: {},
       playerData: [],
-      messageUpdate: ""
+      messageUpdate: "",
+      pinwheelActive: false
   };
   render() {
     // // filter vars
@@ -45,26 +39,26 @@ class App extends Component {
     let currentPage = {};
 
     if(this.state.currentPage === "Home"){
-        let modal = <div></div>;
-        if(this.state.showPlayerModal){
-          modal = (
-            <PlayerModal selectedPlayer={ this.state.selectedPlayer }
-                hideModal={ this.hideModal }
-                show={ this.state.showPlayerModal }
-                updatePlayer={ this.updatePlayer }
-                setAlertMessage={ this.setAlertMessage }
-                setPlayers={ this.setPlayers }
-              />
-          );
-        }
-        //Components: AlertMessage, Map, Highlights,
-        //states: 
+        // let modal = <div></div>;
+        // if(this.state.showPlayerModal){
+        //   modal = (
+        //     // <PlayerModal selectedPlayer={ this.state.selectedPlayer }
+        //     //     hideModal={ this.hideModal }
+        //     //     show={ this.state.showPlayerModal }
+        //     //     updatePlayer={ this.updatePlayer }
+        //     //     setAlertMessage={ this.setAlertMessage }
+        //     //     setPlayers={ this.setPlayers }
+        //     //   />
+        //   );
+        // }
+        // //Components: AlertMessage, Map, Highlights,
+        // //states: 
         currentPage = (
           <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <div style={{backgroundColor: '#fff', padding: '5%', borderRadius: '5px'}}>
               <AlertMessage message={ this.state.messageUpdate } />
               <h1 className="page-header"><center>{selectedTeamMap === "" ? "Dashboard": selectedTeamMap + " Menu"}</center></h1>
-              <Map clickedTeam={ this.clickedTeam }
+              <MapUS clickedTeam={ this.clickedTeam }
                  conferenceFilter={ conferenceFilter }
                  selectedTeamMap={ selectedTeamMap }
                  teamAbbreviations={ teamAbbreviations }
@@ -73,19 +67,26 @@ class App extends Component {
                 doOrderBy={ this.doOrderBy }
                 orderBy={ this.state.orderBy }
                 setPlayers={ this.setPlayers }
-                showModal={ this.showModal }
                 order={ this.state.order }
                 selectedTeamMap={ this.state.selectedTeamMap }
                 conferenceFilter={ this.state.conferenceFilter }
                 playerData={ this.state.playerData }
+                changePage={ this.changePage }
+                setSelectedPlayer={ this.setSelectedPlayer }
+                setPinwheel={ this.setPinwheel }
               />
-              { modal }
+              {/* { modal } */}
             </div>  
           </div>
         );
     } else if(this.state.currentPage === "AddPlayer"){
         currentPage = (
           <AddPlayer changePage={ this.changePage } setAlertMessage={ this.setAlertMessage }  />
+        );
+    } else if(this.state.currentPage === "PlayerProfile"){
+      console.log(this.state.selectedPlayer)
+        currentPage = (
+          <PlayerProfile changePage={ this.changePage } setAlertMessage={ this.setAlertMessage } selectedPlayer={ this.state.selectedPlayer } pinwheelActive={ this.state.pinwheelActive } setPinwheel={ this.setPinwheel }/>
         );
     }
 
@@ -151,23 +152,6 @@ class App extends Component {
     });
   }
 
-  // displays the modal on "Edit" Button click
-  showModal = (e) => {
-
-    const selectedPlayerId = e.target.getAttribute('data-value');
-    const selectedPlayer = _.find(this.state.playerData, {_id: selectedPlayerId});
-
-
-    console.log(selectedPlayerId);
-    console.log(selectedPlayer);
-
-    // displays modal with player attributes
-    this.setState({
-      selectedPlayer: selectedPlayer
-    },
-    () => this.setState({showPlayerModal: true}))
-  }
-
   // closes the modal on exit
   hideModal = () => {
     this.setState({
@@ -224,73 +208,15 @@ class App extends Component {
       playerData: players
     });
   }
-}
-function Map(props) {
-  const conference = props.conferenceFilter;
-  if (conference === "WCC") {
-    return (
-      <TeamMapWCC clickedTeam={ props.clickedTeam }
-               conferenceFilter={ props.conferenceFilter }
-               selectedTeamMap={ props.selectedTeamMap }
-               teamAbbreviations={ props.teamAbbreviations }
-               removeMarker={ props.removeMarker } />
-      );
-  }else if (conference === "RMC") {
-    return (
-      <TeamMapRMC clickedTeam={ props.clickedTeam }
-               conferenceFilter={ props.conferenceFilter }
-               selectedTeamMap={ props.selectedTeamMap }
-               teamAbbreviations={ props.teamAbbreviations }
-               removeMarker={ props.removeMarker } />
-      );
-  }else if(conference === "MWC"){
-    return (
-      <TeamMapMWC clickedTeam={ props.clickedTeam }
-               conferenceFilter={ props.conferenceFilter }
-               selectedTeamMap={ props.selectedTeamMap }
-               teamAbbreviations={ props.teamAbbreviations }
-               removeMarker={ props.removeMarker } />
-      );
-  }else if(conference === "SAC"){
-    return (
-      <TeamMapSAC clickedTeam={ props.clickedTeam }
-               conferenceFilter={ props.conferenceFilter }
-               selectedTeamMap={ props.selectedTeamMap }
-               teamAbbreviations={ props.teamAbbreviations }
-               removeMarker={ props.removeMarker } />
-      );
-  }else if(conference === "GLC"){
-    return (
-      <TeamMapGLC clickedTeam={ props.clickedTeam }
-               conferenceFilter={ props.conferenceFilter }
-               selectedTeamMap={ props.selectedTeamMap }
-               teamAbbreviations={ props.teamAbbreviations }
-               removeMarker={ props.removeMarker } />
-      );
-  }else if(conference === "NEC"){
-    return (
-      <TeamMapNEC clickedTeam={ props.clickedTeam }
-               conferenceFilter={ props.conferenceFilter }
-               selectedTeamMap={ props.selectedTeamMap }
-               teamAbbreviations={ props.teamAbbreviations }
-               removeMarker={ props.removeMarker } />
-      );
-  }else if(conference === "CAC"){
-    return (
-      <TeamMapCAC clickedTeam={ props.clickedTeam }
-               conferenceFilter={ props.conferenceFilter }
-               selectedTeamMap={ props.selectedTeamMap }
-               teamAbbreviations={ props.teamAbbreviations }
-               removeMarker={ props.removeMarker } />
-      );
-  }else{
-    return ( 
-      <TeamMap clickedTeam={ props.clickedTeam }
-               conferenceFilter={ props.conferenceFilter }
-               selectedTeamMap={ props.selectedTeamMap }
-               teamAbbreviations={ props.teamAbbreviations }
-               removeMarker={ props.removeMarker } />
-      );         
+  setPinwheel = (active) => {
+    this.setState({
+      pinwheelActive: active
+    })
+  }
+  setSelectedPlayer = (selectedPlayer) => {
+    this.setState({
+      selectedPlayer: selectedPlayer
+    })
   }
 }
 function AlertMessage (props){

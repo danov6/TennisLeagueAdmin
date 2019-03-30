@@ -35,13 +35,8 @@ export default class PlayerModal extends React.Component {
   }
   componentWillUnmount(){
     if(this.state.player !== this.state.updatedPlayer){
-      fetch('http://localhost:3001/players')
-      .then(
-          res => res.json()
-      ).then((response) =>
-          this.props.setPlayers(response.players)
-      );
-     }
+      this.props.setPinWheel(false);
+    }
   }
   handleInput = (e) => {
     let value = e.target.value;
@@ -87,7 +82,15 @@ export default class PlayerModal extends React.Component {
           this.props.setAlertMessage(data.message);
         })
       });
+
+      fetch('http://localhost:3001/players')
+      .then(
+          res => res.json()
+      ).then((response) =>
+          this.props.setPlayers(response.players)
+      );
     }
+    this.props.setPinWheel(true);
     this.props.hideModal();
   }  
   render() {

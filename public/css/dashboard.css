@@ -103,3 +103,10 @@ body {
   display: inline-block;
   border-radius: 50%;
 }
+.playertablefield {
+  cursor: pointer;
+  color: #337ab7;
+}
+.playertablefield:hover {
+  text-decoration: underline;
+}

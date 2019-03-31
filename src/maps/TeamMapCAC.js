@@ -6,7 +6,7 @@ export default class TeamMapCAC extends React.Component {
   render(){
     console.log('[CACMAP]')
     const selectedRegions = ["US-ME","US-VT","US-NH","US-AK"];
-    const { clickedTeam, conferenceFilter, selectedTeamMap, teamAbbreviations, removeMarker } = this.props;
+    const { clickedTeam, removeMarker } = this.props;
     const regionControls = {
       initial: {
         fill: '#175c98',

@@ -15,6 +15,10 @@ export default class Player extends React.Component {
   render(){
     const { data, orderBy, rank } = this.props;
 
+    if(!isNaN(data.pr) && data.pr !== ""){
+      data.pr = parseInt(data.pr);
+    }
+
     return (    
       <tr key={data._id}>
         <td>{ rank + 1 }</td>
@@ -23,11 +27,6 @@ export default class Player extends React.Component {
         <td className={ orderBy === "conference" ? "active" : null }>{data.conference}</td>
         <td className={ orderBy === "pr" ? "active" : null }>{data.pr}</td>
         <td className={ orderBy === "points" ? "active" : null }>{data.points}</td>
-        <td>
-          <button type="button" className="btn btn-default btn-sm" data-value={data._id}>
-            <span className="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit
-          </button>
-        </td>
       </tr>    
     )
   }

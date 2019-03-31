@@ -4,6 +4,7 @@ import TeamCodes from './../data/teamabbreviations';
 import ConferenceCodes from './../data/conferenceabbreviations';
 
 import LoadingWheel from './../components/LoadingWheel';
+import { tmpdir } from 'os';
 
 export default class PlayerProfile extends React.Component {
   state = {
@@ -84,12 +85,12 @@ export default class PlayerProfile extends React.Component {
   }  
   render() {
 
-    const { changePage } = this.props;
+    const { changePage, selectedPlayer } = this.props;
     const input_styles = {
       fontSize: 20,
       padding: 5,
       borderRadius: 3,
-      width: '80%',
+      width: '100%',
       borderColor: '#1c5c96',
       borderWidth: 1,
       outline: 'none',
@@ -100,7 +101,7 @@ export default class PlayerProfile extends React.Component {
       padding: 5,
       borderRadius: 3,
       backgroundColor: '#fff',
-      width: '80%',
+      width: '100%',
       borderColor: '#1c5c96',
       borderWidth: 1,
       textAlign: 'center',
@@ -119,36 +120,47 @@ export default class PlayerProfile extends React.Component {
     }else{
         return (
             <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                <h4>Name</h4>
-                <input type="text" name="name" style={input_styles} onChange={this.handleInput} value={this.state.updatedPlayer.name}/>
-                <h4>Team</h4>
-                <select
-                    name="team"
-                    value={this.state.updatedPlayer.team}
-                    onChange={this.handleInput}
-                    style={ select_dropdown_styles }
-                    >
-                    <option value="" disabled>Select Team</option>
-                    { teamData }
-                </select>
-                <h4>Conference</h4>
-                <h4 style={{marginLeft: '2%'}}>{this.state.player.conference !== "" ? ConferenceCodes[this.state.updatedPlayer.conference].Name : "N/A"}</h4>
-                <h4>Player Rating</h4>
-                <input type="text" name="pr" style={input_styles} onChange={this.handleInput} value={this.state.updatedPlayer.pr}/>
-                <h4>Points</h4>
-                <input type="text" name="points" style={input_styles} onChange={this.handleInput} value={this.state.updatedPlayer.points}/>
+                <div style={{backgroundColor: '#fff', padding: '5%', borderRadius: '5px'}}>
+                <h1 className="page-header"><center>{ selectedPlayer.name }</center></h1>
                 <table>
                     <tbody>
-                    <tr>
-                        <td>
-                        <button onClick={ changePage } className="btn btn-link btn-lg" style={{width: 180}} data-value="Home">Close</button>
-                        </td>
-                        <td>
-                        <button onClick={ this.handleUpdatePlayer } className="btn btn-primary btn-lg" style={{width: 180}}>Update</button>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>
+                            <h4>Name</h4>
+                            <input type="text" name="name" style={input_styles} onChange={this.handleInput} value={this.state.updatedPlayer.name}/>
+                            <h4>Team</h4>
+                            <select
+                                name="team"
+                                value={this.state.updatedPlayer.team}
+                                onChange={this.handleInput}
+                                style={ select_dropdown_styles }
+                                >
+                                <option value="" disabled>Select Team</option>
+                                { teamData }
+                            </select>
+                            <h4>Conference</h4>
+                            <h4 style={{marginLeft: '2%'}}>{this.state.player.conference !== "" ? ConferenceCodes[this.state.updatedPlayer.conference].Name : "N/A"}</h4>
+                            <h4>Player Rating</h4>
+                            <input type="text" name="pr" style={input_styles} onChange={this.handleInput} value={this.state.updatedPlayer.pr}/>
+                            <h4>Points</h4>
+                            <input type="text" name="points" style={input_styles} onChange={this.handleInput} value={this.state.updatedPlayer.points}/>
+                            <table>
+                                <tbody>
+                                <tr>
+                                    <td style={{padding: '2%'}}>
+                                    <button onClick={ changePage } className="btn btn-link btn-lg" style={{width: 180}} data-value="Home">Back</button>
+                                    </td>
+                                    <td>
+                                    <button onClick={ this.handleUpdatePlayer } className="btn btn-primary btn-lg" style={{width: 180}} id="updateButton">Update</button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            </td>
+                        </tr>
                     </tbody>
-                </table>
+                </table> 
+                </div>
             </div>
             );
     }

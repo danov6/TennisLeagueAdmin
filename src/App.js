@@ -129,6 +129,13 @@ class App extends Component {
   filterConference = (e) => {
     e.preventDefault();
     const newFilter = e.target.getAttribute('data-value');
+    const page = this.state.currentPage;
+
+    if(page !== "Home"){
+      this.setState({
+        currentPage: "Home"
+      });
+    }
 
     this.setState({
       conferenceFilter : newFilter,

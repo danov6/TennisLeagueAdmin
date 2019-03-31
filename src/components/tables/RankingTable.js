@@ -20,7 +20,7 @@ export default class RankingTable extends React.Component {
     }
     render(){
 
-    const { order, orderBy, conferenceFilter, selectedTeamMap, doOrderBy, setSelectedPlayer, setPinwheel, changePage, pinwheelActive } = this.props;  
+    const { order, orderBy, conferenceFilter, selectedTeamMap, doOrderBy, setSelectedPlayer, setPinwheel, changePage } = this.props;  
     let { playerData } = this.props;
     
     // lodash library used to sort the list

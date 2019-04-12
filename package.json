@@ -1,46 +1,42 @@
 {
-  "name": "usi_domino_node_v1",
-  "version": "0.0.1",
-  "description": "USI Domino - Node Server",
-  "main": "server.js",
-  "author": "danov6",
+  "name": "my-app",
+  "version": "0.1.0",
   "private": true,
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Upsellit/Domino"
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "datasets-us-states-abbr-names": "^1.0.0",
+    "express": "^4.16.4",
+    "jquery": "^3.3.1",
+    "jquery-mousewheel": "^3.1.13",
+    "jvectormap-next": "^3.0.0",
+    "mongodb": "^3.1.9",
+    "mongoose": "^5.4.16",
+    "morgan": "^1.9.1",
+    "mysql": "^2.16.0",
+    "prop-types": "^15.6.2",
+    "react": "^15.6.2",
+    "react-addons-css-transition-group": "^15.6.2",
+    "react-bootstrap": "^0.32.4",
+    "react-dom": "^15.6.2",
+    "react-jvectormap": "0.0.5"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "react-scripts": "^2.1.8"
   },
   "scripts": {
-    "client": "cd client && npm start",
-    "start": "concurrently \"nodemon\" \"npm run client\""
-  },
-  "dependencies": {
-    "apn": "^2.2.0",
-    "async": "^2.6.2",
-    "aws-sdk": "^2.426.0",
-    "bcrypt-nodejs": "0.0.3",
-    "body-parser": "^1.18.3",
-    "colors": "^1.3.3",
-    "compression": "^1.7.4",
-    "concurrently": "^4.1.0",
-    "cors": "^2.8.5",
-    "dotenv-safe": "^6.1.0",
-    "email-validator": "^2.0.4",
-    "express": "^4.16.4",
-    "express-jwt": "^5.3.1",
-    "fs": "0.0.1-security",
-    "jsonwebtoken": "^8.5.1",
-    "moment": "^2.24.0",
-    "mongoose": "^5.4.17",
-    "mongoose-unique-validator": "^2.0.2",
-    "multiparty": "^4.2.1",
-    "node-datetime": "^2.1.2",
-    "node-fetch": "^2.3.0",
-    "node-salesforce-connection": "^2.3.0",
-    "node-schedule": "^1.3.2",
-    "nodemon": "^1.18.10",
-    "prettyjson": "^1.2.1",
-    "request": "^2.88.0",
-    "socket.io": "^2.2.0",
-    "validator": "^10.11.0"
-  }
+    "client": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "server": "node Server.js",
+    "start": "concurrently \"killall node\" \"nodemon\" \"npm run client\" \"npm run server\""  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "proxy": "http://localhost:5000"
 }

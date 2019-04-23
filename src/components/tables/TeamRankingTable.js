@@ -1,40 +1,40 @@
 import React from 'react';
-import Player from './../Player';
-
-const player_properties = ["Name","Team","Conference","PR","Points"];
+import TeamAbbreviations from './../../data/teamabbreviations';
 
 var _ = require('lodash');
-
-var teamAbbreviations = require('datasets-us-states-abbr-names');
 
 export default class RankingTable extends React.Component {
     render(){
 
-    const { order, orderBy, conferenceFilter, selectedTeamMap, doOrderBy, setSelectedPlayer, changePage } = this.props;  
     let { playerData } = this.props;
+
+    let teamData = sortTeams(playerData);
     
     // list of players
-    const players = playerData.map((item, index)=>{
-      return <Player data={ item } key={ item._id } rank={ index } orderBy={ orderBy } changePage={ changePage } setSelectedPlayer={ setSelectedPlayer } playerData={ playerData } />
+    const sorted = teamData.map((team, index)=>{
+      return <tr>
+                <td>{ index + 1 }</td>
+                <td>{ team.name }</td>
+                <td>{ team.conference }</td>
+                <td>{ team.points }</td>
+            </tr>
     }); 
-
-    const header_properties = player_properties.map((prop,index)=>{
-      return <th key={index}><a href="#" onClick={ doOrderBy } data-value={prop.toLowerCase()}>{prop}</a></th>
-    });
 
     return (
         <div>
-            <h2 className="sub-header" key="title">{conferenceFilter + " "} Player Rankings</h2>
+            <h2 className="sub-header" key="title">Team Rankings</h2>
             <div className="table-responsive" key="other">
                 <table className="table table-striped">
                     <thead>
                         <tr>
-                            <th><a href="#" onClick={ doOrderBy } data-value="points">#</a></th>
-                            { header_properties }
+                            <th>#</th>
+                            <th>Team</th>
+                            <th>Conference</th>
+                            <th>Rating</th>
                         </tr>
                     </thead>
                     <tbody>
-                        { players }
+                        { sorted }
                     </tbody>
                 </table>
             </div>
@@ -42,10 +42,26 @@ export default class RankingTable extends React.Component {
     );
     }
 }
-function getFullTeamName (code){
-    if(code === "SCA" || code === "NCA"){
-      return "California";
-    }else{
-      return teamAbbreviations[code];
+function sortTeams (playerData){
+    let teams = [];
+    console.log(Object.keys(TeamAbbreviations))
+    for(var i = 0; i < Object.keys(TeamAbbreviations).length; i++){
+        var abbrev = Object.keys(TeamAbbreviations)[i];
+        var team = {
+            name: TeamAbbreviations[abbrev].Name,
+            conference: TeamAbbreviations[abbrev].Conf,
+            points: 0
+        };
+        for(var j = 0; j < playerData.length; j++){
+            if(abbrev === playerData[j].team){
+                team.points += playerData[j].pr === "" ? 0 : parseInt(playerData[j].pr);
+            }
+        }
+        teams.push(team);
     }
+
+    teams = _.orderBy(teams, (item) => {
+        return item['points']
+    }, 'desc');
+    return teams;
 }

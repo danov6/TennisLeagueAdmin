@@ -76,7 +76,7 @@ class App extends Component {
         );
     } else if(this.state.currentPage === "TeamRankings"){
       currentPage = (
-        <TeamRankings changePage={ this.changePage } playerData={ this.state.playerData }/>
+        <TeamRankings playerData={ this.state.playerData }/>
       );
     }
 
@@ -87,6 +87,7 @@ class App extends Component {
         <div className="row">
           <Sidebar filterConference={ this.filterConference}
            showAllPlayers={this.showAllPlayers}
+           changePage={this.changePage}
             />
           { currentPage }
         </div>

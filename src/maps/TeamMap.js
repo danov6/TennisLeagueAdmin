@@ -4,7 +4,7 @@ import { VectorMap } from 'react-jvectormap';
 export default class TeamMap extends React.Component {
   render(){
     console.log('[MAP]')
-    const { clickedTeam, conferenceFilter, teamAbbreviations, removeMarker } = this.props;
+    const { clickedTeam, teamAbbreviations, removeMarker } = this.props;
     let selectedTeamMap = this.props.selectedTeamMap;
     var selectedRegions = [];
     const regionControls = {
@@ -26,12 +26,14 @@ export default class TeamMap extends React.Component {
       selectedHover: {
       }
     };
-
+    console.log(selectedTeamMap)
     if(selectedTeamMap !== ""){
       for(var team in teamAbbreviations){
+        console.log(teamAbbreviations[team]);
         if(teamAbbreviations[team] === selectedTeamMap){
           selectedRegions.push("US-" + team);
-          console.log(selectedRegions);
+        }else if(selectedTeamMap.indexOf("California") != -1){
+          selectedRegions.push("US-CA");
         }
       }
     }

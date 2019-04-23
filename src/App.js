@@ -5,6 +5,7 @@ import RankingTable from './components/tables/RankingTable';
 
 import AddPlayer from './pages/AddPlayer';
 import PlayerProfile from './pages/PlayerProfile';
+import TeamRankings from './pages/TeamRankings'
 
 import MapUS from './components/MapUS';
 
@@ -39,20 +40,6 @@ class App extends Component {
     let currentPage = {};
 
     if(this.state.currentPage === "Home"){
-        // let modal = <div></div>;
-        // if(this.state.showPlayerModal){
-        //   modal = (
-        //     // <PlayerModal selectedPlayer={ this.state.selectedPlayer }
-        //     //     hideModal={ this.hideModal }
-        //     //     show={ this.state.showPlayerModal }
-        //     //     updatePlayer={ this.updatePlayer }
-        //     //     setAlertMessage={ this.setAlertMessage }
-        //     //     setPlayers={ this.setPlayers }
-        //     //   />
-        //   );
-        // }
-        // //Components: AlertMessage, Map, Highlights,
-        // //states: 
         currentPage = (
           <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <div style={{backgroundColor: '#fff', padding: '5%', borderRadius: '5px'}}>
@@ -75,7 +62,6 @@ class App extends Component {
                 setSelectedPlayer={ this.setSelectedPlayer }
                 setPinwheel={ this.setPinwheel }
               />
-              {/* { modal } */}
             </div>  
           </div>
         );
@@ -88,6 +74,10 @@ class App extends Component {
         currentPage = (
           <PlayerProfile changePage={ this.changePage } setAlertMessage={ this.setAlertMessage } selectedPlayer={ this.state.selectedPlayer } pinwheelActive={ this.state.pinwheelActive } setPinwheel={ this.setPinwheel }/>
         );
+    } else if(this.state.currentPage === "TeamRankings"){
+      currentPage = (
+        <TeamRankings changePage={ this.changePage } playerData={ this.state.playerData }/>
+      );
     }
 
     return (
@@ -192,12 +182,13 @@ class App extends Component {
     var team = "";
     var california = ["SCA","NCA"];
     code = code.replace("US-","");
-
+    
     //TODO: Need popup or something to help distinguish if user wants SCA or NCA
-    if(code !== "CA"){
-      team = getFullTeamName(code);
+    console.log(code === "CA")
+    if(code === "CA"){
+      team = "California"
     }else{
-      team = "California";
+      team = teamAbbreviations[code];
     }
 
     this.setState({
@@ -241,13 +232,6 @@ function AlertMessage (props){
         </div>
       );
     }
-}
-function getFullTeamName (code){
-  if(code === "SCA" || code === "NCA"){
-    return "California";
-  }else{
-    return teamAbbreviations[code];
-  }
 }
 
 export default App;

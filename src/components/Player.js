@@ -4,7 +4,6 @@ var _ = require('lodash');
 
 export default class Player extends React.Component {
   setupPlayerProfile = (e) => {
-    this.props.setPinwheel(true);
     const selectedPlayerId = e.target.getAttribute('data-value');
     const selectedPlayer = _.find(this.props.playerData, {_id: selectedPlayerId});
 

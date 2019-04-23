@@ -50,7 +50,6 @@ app.use((req, res, next) => {
 app.use("/players", playerRoutes);
 
 app.use((req, res, next) => {
-  console.log('ERRor TEST')
   const error = new Error("Not found");
   error.status = 404;
   next(error);

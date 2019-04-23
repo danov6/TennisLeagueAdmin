@@ -4,9 +4,8 @@ import { VectorMap } from 'react-jvectormap';
 export default class TeamMapWCC extends React.Component {
 
   render(){
-    console.log('[WCCMAP]');
     const selectedRegions = ["US-CA","US-WA","US-OR","US-NV","US-AZ","US-ID","US-HI"];
-    const { clickedTeam, conferenceFilter, selectedTeamMap, teamAbbreviations, removeMarker } = this.props;
+    const { clickedTeam, removeMarker } = this.props;
     const regionControls = {
       initial: {
         fill: '#175c98',

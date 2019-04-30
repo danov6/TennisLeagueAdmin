@@ -76,7 +76,7 @@ class App extends Component {
         );
     } else if(this.state.currentPage === "TeamRankings"){
       currentPage = (
-        <TeamRankings playerData={ this.state.playerData }/>
+        <TeamRankings playerData={ this.state.playerData } changePage={ this.changePage } setSelectedTeam={ this.setSelectedTeam } />
       );
     }
 
@@ -215,6 +215,11 @@ class App extends Component {
   setSelectedPlayer = (selectedPlayer) => {
     this.setState({
       selectedPlayer: selectedPlayer
+    })
+  }
+  setSelectedTeam = (team) => {
+    this.setState({
+      selectedTeamMap: team
     })
   }
 }

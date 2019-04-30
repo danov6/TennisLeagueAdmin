@@ -24,9 +24,6 @@ export default class Navbar extends React.Component {
                   <li><a href="#" onClick={ changePage } data-value="AddPlayer">Add Player</a></li>
                   <li><a href="#">Profile</a></li>
                 </ul>
-                <form className="navbar-form navbar-right">
-                  <input type="text" className="form-control" placeholder="Search..." />
-                </form>
               </div>
             </div>
           </nav>

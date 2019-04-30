@@ -1,9 +1,15 @@
 import React from 'react';
 import TeamAbbreviations from './../../data/teamabbreviations';
+import ConfAbbreviations from './../../data/conferenceabbreviations';
 
 var _ = require('lodash');
 
 export default class RankingTable extends React.Component {
+    handleTeamClick = (e) => {
+        const team = e.target.getAttribute('data-value');
+        this.props.setSelectedTeam(team);
+        this.props.changePage("Home");
+    };
     render(){
 
     let { playerData } = this.props;
@@ -14,8 +20,8 @@ export default class RankingTable extends React.Component {
     const sorted = teamData.map((team, index)=>{
       return <tr>
                 <td>{ index + 1 }</td>
-                <td>{ team.name }</td>
-                <td>{ team.conference }</td>
+                <td className="playertablefield" onClick={this.handleTeamClick} data-value={team.name} >{ team.name }</td>
+                <td>{ ConfAbbreviations[team.conference].Name.replace(' Conference', '') }</td>
                 <td>{ team.points }</td>
             </tr>
     }); 
@@ -30,7 +36,7 @@ export default class RankingTable extends React.Component {
                             <th>#</th>
                             <th>Team</th>
                             <th>Conference</th>
-                            <th>Rating</th>
+                            <th>Overall Rating</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -44,7 +50,6 @@ export default class RankingTable extends React.Component {
 }
 function sortTeams (playerData){
     let teams = [];
-    console.log(Object.keys(TeamAbbreviations))
     for(var i = 0; i < Object.keys(TeamAbbreviations).length; i++){
         var abbrev = Object.keys(TeamAbbreviations)[i];
         var team = {

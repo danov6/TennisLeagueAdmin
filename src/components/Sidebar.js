@@ -3,6 +3,9 @@ import ConferenceCodes from './../data/conferenceabbreviations';
 
 export default class Sidebar extends React.Component {
 
+    linkClicked = () => {
+
+    };
     render(){
 
       const { filterConference, showAllPlayers, changePage } = this.props;
@@ -20,7 +23,7 @@ export default class Sidebar extends React.Component {
       return (
       	<div className="col-sm-3 col-md-2 sidebar">
           <ul className="nav nav-sidebar">
-            <li className="active"><a href="#" onClick={showAllPlayers}>Player Rankings<span className="sr-only">(current)</span></a></li>
+            <li><a href="#" onClick={showAllPlayers}>Player Rankings<span className="sr-only">(current)</span></a></li>
             <li><a href="#" onClick={changePage} data-value="TeamRankings">Team Rankings</a></li>
             <li><a href="#">Free Agency</a></li>
             <li><a href="#">Playoff Race</a></li>

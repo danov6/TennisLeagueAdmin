@@ -8,7 +8,8 @@ export default class TeamRankings extends React.Component {
         <div style={{backgroundColor: '#fff', padding: '5%', borderRadius: '5px'}}>
           <TeamRankingTable
             playerData={ this.props.playerData }
-            changePage={ this.changePage }
+            changePage={ this.props.changePage }
+            setSelectedTeam={ this.props.setSelectedTeam }
           />
         </div>  
     </div>

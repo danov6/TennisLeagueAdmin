@@ -112,7 +112,7 @@
 		"Conf": "SAC"
 	},
 	"NCA": {
-		"Name": "Northern Calfornia",
+		"Name": "Northern California",
 		"Conf": "WCC"
 	},
 	"ND": {
@@ -187,10 +187,6 @@
 		"Name": "South Dakota",
 		"Conf": "RMC"
 	},
-	"VT": {
-		"Name": "Vermont",
-		"Conf": "CAC"
-	},
 	"TN": {
 		"Name": "Tennessee",
 		"Conf": "MWC"
@@ -202,6 +198,10 @@
 	"UT": {
 		"Name": "Utah",
 		"Conf": "RMC"
+	},
+	"VT": {
+		"Name": "Vermont",
+		"Conf": "CAC"
 	},
 	"VA": {
 		"Name": "Virginia",

@@ -5,7 +5,8 @@ import RankingTable from './components/tables/RankingTable';
 
 import AddPlayer from './pages/AddPlayer';
 import PlayerProfile from './pages/PlayerProfile';
-import TeamRankings from './pages/TeamRankings'
+import TeamRankings from './pages/TeamRankings';
+import ConferenceRankings from './pages/ConferenceRankings'
 
 import MapUS from './components/MapUS';
 
@@ -77,6 +78,10 @@ class App extends Component {
     } else if(this.state.currentPage === "TeamRankings"){
       currentPage = (
         <TeamRankings playerData={ this.state.playerData } changePage={ this.changePage } setSelectedTeam={ this.setSelectedTeam } />
+      );
+    } else if(this.state.currentPage === "ConferenceRankings"){
+      currentPage = (
+        <ConferenceRankings playerData={ this.state.playerData } changePage={ this.changePage } setSelectedTeam={ this.setSelectedTeam } />
       );
     }
 

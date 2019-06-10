@@ -18,7 +18,7 @@ export default class RankingTable extends React.Component {
     
     // list of players
     const sorted = teamData.map((team, index)=>{
-      return <tr>
+      return <tr key={index}>
                 <td>{ index + 1 }</td>
                 <td className="playertablefield" onClick={this.handleTeamClick} data-value={team.name} >{ team.name }</td>
                 <td>{ ConfAbbreviations[team.conference].Name.replace(' Conference', '') }</td>
@@ -30,7 +30,7 @@ export default class RankingTable extends React.Component {
 
     return (
         <div>
-            <h2 className="sub-header" key="title">Team Rankings</h2>
+            <h2 className="sub-header" key="title" style={{textAlign: 'center', paddingBottom: '5%'}}>Team Rankings</h2>
             <div className="table-responsive" key="other">
                 <table className="table table-striped">
                     <thead>

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import TeamAbbreviations from './../data/teamabbreviations';
+import ConferenceAbbreviations from './../data/conferenceabbreviations';
 
 var _ = require('lodash');
 
@@ -90,6 +91,15 @@ function Conference (props){
     const conference = props.conference;
 
     let conferenceTeams = getConferenceTeams(conference, teams);
+    let pointsTotal = 0;
+    let depthTotal = 0;
+
+    for(var i = 0; i < conferenceTeams.length; i++){
+        pointsTotal += conferenceTeams[i].points;
+    }
+    for(var j = 0; j < conferenceTeams.length; j++){
+        depthTotal += conferenceTeams[j].depth;
+    }
 
     const sorted = conferenceTeams.map((team, index)=> {
         return <tr key={index}>
@@ -105,7 +115,7 @@ function Conference (props){
         <td style={{padding: '2%'}}>
             <div className="table-responsive" key="other">
                 <table className="table table-striped">
-                <caption><center><h3>{conference}</h3></center></caption>
+                <caption><center><h3>{ ConferenceAbbreviations[conference].Name }</h3></center></caption>
                     <thead>
                         <tr>
                             <th>#</th>
@@ -117,6 +127,13 @@ function Conference (props){
                     </thead>
                     <tbody>
                         { sorted }
+                        <tr>
+                            <td></td>
+                            <td><b>Conference</b></td>
+                            <td><b>{pointsTotal / 8}</b></td>
+                            <td><b>{depthTotal / 8}</b></td>
+                            <td><b>{ ((pointsTotal + depthTotal) / 2) / 8 }</b></td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

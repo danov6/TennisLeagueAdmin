@@ -1,3 +1,4 @@
+require('dotenv').config({path: __dirname + '/.env'});
 const mongoose = require("mongoose");
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -8,7 +9,8 @@ const app = express();
 const router = express.Router();
 
 // this is our MongoDB database
-const dbRoute = "mongodb+srv://glvaldez:Giordano1!@player-data-app-bdkhh.mongodb.net/test?retryWrites=true";
+console.log(process.env)
+const dbRoute = process.env.MONGO_URI;
 //mongodb+srv://glvaldez:<PASSWORD>@player-data-app-bdkhh.mongodb.net/test?retryWrites=true
 const playerRoutes = require("./api/Routes/players");
 

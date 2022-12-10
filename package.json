@@ -7,7 +7,7 @@
     "cors": "^2.8.5",
     "datasets-us-states-abbr-names": "^1.0.0",
     "dotenv": "^7.0.0",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "jquery": "^3.3.1",
     "jquery-mousewheel": "^3.1.13",
     "jvectormap-next": "^3.0.0",
